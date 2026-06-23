@@ -100,18 +100,18 @@
 			object-fit: contain;
 			flex-shrink: 0;
 		}
-		.icon-text{
+		.icon-text {
 			width: auto;
 			height: auto;
 			object-fit: contain;
 			flex-shrink: 0;
 		}
-		.icon-link{
+		.icon-link {
             height: 30px;
             object-fit: contain;
 			align-items: center;
 			flex-shrink: 0;
-		}		
+		}
         .card-content {
             display: none;
             flex-wrap: wrap;
@@ -131,6 +131,16 @@
             border-radius: 4px;
             font-size: 0.8rem;
             margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .box {
+            background: #abdfe6;
+            color: #10097c;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            margin-right: 0.5rem;
             font-weight: bold;
         }
         .faction-link {
@@ -219,6 +229,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Claim 1</span>
                 <span class="tag">14 Cartas (0-9)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Caballeros.png" alt="Caballeros" class="icon-link" onclick="goToAnchor('caballeros'); return false;"></span>
                 <p><strong>Poder: </strong> No tienen poderes especiales.</p>
@@ -233,6 +244,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Claim 1</span>                
                 <span class="tag">8 Cartas (2-9)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Goblins.png" alt="Goblins" class="icon-link" onclick="goToAnchor('goblins'); return false;"></span>                
                 <p><strong>Poder: </strong> Cuando juegas un Caballero después de un Goblin, el Caballero gana automáticamente al Goblin, independientemente de su valor. Debes seguir la regla de arrastre si puedes.</p>
@@ -247,6 +259,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Claim 1</span>                
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong> El perdedor de la baza coloca en su pila de Simpatizantes todas las cartas de Enano jugadas. El ganador se lleva las que no sean de Enano.</p>
             </div>
@@ -260,6 +273,7 @@
 				<span class="arrow">▼</span>
 			</div>			
             <div class="card-content">
+                <span class="box">Claim 1</span>                
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong> Las cartas jugadas de No-Muertos no se descartan. Se añaden a la pila de Simpatizantes del ganador de la baza. Si una carta de No-Muerto está en el centro y es ganada, va al mazo de Seguidores.</p>
             </div>
@@ -273,6 +287,7 @@
 				<span class="arrow">▼</span>
 			</div>			
             <div class="card-content">
+                <span class="box">Claim 1</span>                
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Facción comodín. Puedes jugarlo en vez de seguir a la facción líder, aunque tengas cartas de esa facción. Se considera de la misma facción que la carta jugada por el Líder, pero NO copia sus poderes.</p>
             </div>
@@ -291,6 +306,7 @@
 				<span class="arrow">▼</span>
 			</div>			
             <div class="card-content">
+                <span class="box">Claim 2</span>
                 <span class="tag">13 Cartas (Impares 1-9)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Gigantes.png" alt="Gigantes" class="icon-link" onclick="goToAnchor('gigantes'); return false;"></span>
                 <p><strong>Poder (Fase 2): </strong> Se colocan boca arriba delante de ti, no en la pila de Simpatizantes. Al final de la partida, los que queden se mueven a la pila de Simpatizantes.</p>
@@ -305,6 +321,7 @@
 				<span class="arrow">▼</span>
 			</div>			
             <div class="card-content">
+                <span class="box">Claim 2</span>
                 <span class="tag">9 Cartas (Impares 1-9)</span>
                                 <span class="faction-link">🔗<img src="icons/factions/Gnomos.png" alt="Gnomos" class="icon-link" onclick="goToAnchor('gnomos'); return false;"></span>
                 <p><strong>Poder (Fase 2): </strong> Si ganas la baza, cada Gigante jugado puede aplastar un Gnomo del oponente del mismo valor. El Gnomo aplastado se descarta y no puntúa.</p>
@@ -319,6 +336,7 @@
 				<span class="arrow">▼</span>
 			</div>			
             <div class="card-content">
+                <span class="box">Claim 2</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> El último jugador en jugar un Dragón en una baza será el Líder de la siguiente baza, sin importar el valor o quién ganó la baza.</p>
             </div>
@@ -332,6 +350,7 @@
 				<span class="arrow">▼</span>
 			</div>			
             <div class="card-content">
+                <span class="box">Claim 2</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong> Solo se puede conseguir 1 Troll por baza. Si se juegan dos, el ganador se lleva el de mayor valor y el otro se aparta para el ganador de la siguiente baza.</p>
             </div>
@@ -345,6 +364,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Claim 2</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong> Si ganas la baza con una Vidente, puedes mirar la carta superior del mazo y elegir entre tomar esa o la del centro de la mesa.</p>
             </div>
@@ -363,6 +383,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mercenarios</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Al final de la partida, el jugador con MENOS cartas de Cíclope gana el voto (debes tener al menos 1). En empate, gana el de menor valor en mesa.</p>
             </div>
@@ -376,6 +397,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mercenarios</span>
                 <span class="tag">7 Cartas (1-7).</span>
                 <span class="faction-link">🔗<img src="icons/factions/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon-link" onclick="goToAnchor('elfos-orcos'); return false;"></span>			
                 <p><strong>Poder: </strong> Sin poder especial</p>
@@ -390,6 +412,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mercenarios</span>
                 <span class="tag">7 Cartas (1-7)</span>
 				<span class="faction-link">🔗<img src="icons/factions/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon-link" onclick="goToAnchor('elfos-orcos'); return false;"></span>
                 <p><strong>Poder: </strong>Sin poder especial.</p>
@@ -404,6 +427,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div id="elfosorcos" class="card-content">
+                <span class="box">Refuerzos: Mercenarios</span>
                 <span class="tag">8 Cartas (1-8)</span>
                 <p><strong>Poder: </strong>En la Fase 1 o 2, cuando juegas una carta de doble facción, debes anunciar si la juegas como Elfo o como Orco. <br>En la Fase 2, si ganas esta carta, cuenta como la facción que fue anunciada al jugarla. Puedes girar la carta para indicar de qué facción es.</p>
             </div>
@@ -429,6 +453,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Magia</span>
                 <span class="tag">10 Cartas (0-9) + 10 Cartas de pociones</span>
                 <p><strong>Poder: </strong> Si ganas con un Mago, roba una carta de Poción (boca abajo). Durante otra baza puedes voltearla para alterar el valor de tu carta (suele subir, pero puede bajar).</p>
             </div>
@@ -442,6 +467,7 @@
 				<span class="arrow">▼</span>
 			</div>
              <div class="card-content">
+                <span class="box">Refuerzos: Magia</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong> Si pierdes tras jugar un Druida, se queda delante de ti girado 180º (se convierte en Oso). Tu siguiente carta jugada obtiene +3 a su valor.</p>
             </div>
@@ -455,6 +481,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Magia</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong> Al jugarlo, se intercambia con la carta del centro de la mesa. Ahora competiréis por el Cambiaformas.</p>
             </div>
@@ -480,6 +507,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mapas</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Si juegas esta carta después de una del mismo valor, colocas la carta del oponente en tu pila de Simpatizantes, ganas la baza y lideras la siguiente.</p>
             </div>
@@ -493,6 +521,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mapas</span>
                 <span class="tag">10 Fénix + 10 Fuegos</span>
                 <p><strong>Poder (Fase 2): </strong> Si pierdes jugando un Fénix, roba una carta de Fuego de Fénix a tu mano. Funciona exactamente como un Fénix normal.</p>
             </div>
@@ -506,6 +535,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mapas</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong> Cada carta de Unicornio ganada aumenta el valor de las cartas de OTRA facción que juegues en +1 por Unicornio. No afecta a la puntuación final.</p>
             </div>
@@ -531,6 +561,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mapas</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong> Se colocan boca arriba. Las cartas de otras facciones ganadas se ponen DEBAJO del Vampiro. Cuentan para el voto de Vampiros, no para su facción original. Al final se suman valores.</p>
             </div>
@@ -544,6 +575,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mapas</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong> Si ganas la baza con un Zombi, la carta jugada por tu oponente va a tu pila de Simpatizantes.</p>
             </div>
@@ -557,6 +589,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mapas</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Se usan 2 cartas de Luna (Llena/Sin luna). Si gana la baza el Hombre Lobo, se cambia la carta de Luna. Sin luna arriba: gana el de menor valor. Luna llena arriba: gana el de mayor valor.</p>
             </div>
@@ -570,6 +603,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Mapas</span>
                 <span class="tag">10 de 20 Cartas (0-19)</span>
                 <p><strong>Poder: </strong> Se barajan las 20 y se meten 10 al azar. Nadie sabe qué valores hay en juego durante la partida.</p>
             </div>
@@ -588,6 +622,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Fuego</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Al jugarla solo se sabe si es Par o Impar. Su valor real se comprueba al resolver la baza.</p>
             </div>
@@ -601,6 +636,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Fuego</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Al jugarla solo se sabe si es Alta (5-9) o Baja (0-4). El valor se comprueba al resolver.</p>
             </div>
@@ -614,6 +650,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Fuego</span>
                 <span class="tag">10 Cartas (Impares 1-9)</span>
                 <p><strong>Poder: </strong> Hay 2 copias de cada valor. Una verdadera y una falsa (marcada con X). El engaño se comprueba al final de la partida, descartando las cartas con X.</p>
             </div>
@@ -627,6 +664,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Fuego</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Se ponen 3 cartas de Veneno boca arriba. Si ganas con un Envenenador puedes mirar una con el Filtro Revelador. Al final, se descartan de las pilas las cartas que coincidan con los valores de veneno revelados.</p>
             </div>
@@ -645,6 +683,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Hielo</span>
                 <span class="tag">11 Cartas (0-10)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Reinas-de-Hielo.png" alt="Reinas de Hielo" class="icon-link" onclick="goToAnchor('reinas-de-hielo'); return false;"></span>
                 <p><strong>Poder: </strong> Antes de determinar el voto de la facción: descarta de la pila de simpatizantes todas las parejas de Rey del hielo/Reina del hielo que tengan el mismo valor: ¡se casan y se escapan!.</p>
@@ -659,6 +698,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Hielo</span>
                 <span class="tag">11 Reinas (0-10)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Reyes-de-Hielo.png" alt="Reyes de Hielo" class="icon-link" onclick="goToAnchor('reyes-de-hielo'); return false;"></span>                
                 <p><strong>Poder: </strong> Antes de determinar el voto de la facción: descarta de la pila de simpatizantes todas las parejas de Rey del hielo/Reina del hielo que tengan el mismo valor: ¡se casan y se escapan!.</p>
@@ -673,6 +713,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Hielo</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Incluso si ganas la baza con un Yeti, NO serás el Líder de la siguiente baza.</p>
             </div>
@@ -686,6 +727,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Hielo</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong> Si ganas la baza con esta carta, la otra carta jugada se descarta y no la colocas en tu pila de Simpatizantes.</p>
             </div>
@@ -710,6 +752,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Cielo</span>
                 <span class="tag">12 Cartas (0-11)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Ágilas.png" alt="Ágilas" class="icon-link" onclick="goToAnchor('agilas'); return false;"></span>   
                 <p><strong>Poder: </strong> Al final de la partida, si no hay otras cartas en tu pila de Simpatizantes con el mismo número que una determinada carta de Ángel, esa carta cuenta x2 para determinar el apoyo de la facción.</p>
@@ -724,6 +767,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Cielo</span>
                 <span class="tag">12 Cartas (0-11)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Ángeles.png" alt="Ángeles" class="icon-link" onclick="goToAnchor('angeles'); return false;"></span>
                 <p><strong>Poder: </strong> Las Águilas no pueden liderar dos bazas consecutivas, a excepción de que el jugador únicamente tenga Águilas en la mano.</p>
@@ -738,6 +782,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Cielo</span>
                 <span class="tag">12 Cartas (0-11)</span>
                 <p><strong>Poder: </strong> Al final de la partida, ¡todas las cartas de Pterosaurio de valor ≥ 7 se extinguen! Dichas cartas no cuentan para la determinación de la mayoría en la facción.</p>
             </div>
@@ -751,6 +796,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Cielo</span>
                 <span class="tag">12 Cartas (0-11)</span>
                 <p><strong>Poder (Fase 2): </strong> Fase 2: puedes descartar cualquier número de Elementales de Luz de tu pila de Simpatizantes para potenciar una carta jugada. Cada carta descartada potencia a la carta jugada en +1.</p>
             </div>
@@ -764,6 +810,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Cielo</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Al final de la partida, si ganas la mayoría en la facción de Buitres, baraja la pila de descarte de la Fase 1 y roba 2 cartas. Añade esas cartas a tus pilas de Simpatizantes correspondientes.</p>
             </div>
@@ -782,6 +829,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Sol</span>
                 <span class="tag">11 Cartas (0-10)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Monjes-de-la-Estrella.png" alt="Monjes Estelares" class="icon-link" onclick="goToAnchor('monjes-de-la-estrella'); return false;"></span>                   
                 <p><strong>Poder: </strong> Cuando se juega un Monje del Sol, una regla especial del arrastre obliga al otro jugador a jugar un Monje de la Estrella. Si el otro jugador acompaña correctamente, el valor más alto de ambos gana la baza. Un Monje del Sol jugado tras otro Monje del Sol se consideran de facciones distintas, ganando la baza automáticamente el primer jugador.</p>
@@ -796,6 +844,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Sol</span>
                 <span class="tag">11 Cartas (0-10)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Monjes-de-Sol.png" alt="Monjes Solares" class="icon-link" onclick="goToAnchor('monjes-del-sol'); return false;"></span>                                   
                 <p><strong>Poder: </strong> Cuando se juega un Monje de la Estrella, una regla especial del arrastre obliga al otro jugador a jugar un Monje del Sol. Si el otro jugador acompaña correctamente, el valor más alto de ambos gana la baza. Un Monje de la Estrella jugado tras otro Monje de la Estrella se consideran de facciones distintas, ganando la baza automáticamente el primer jugador.</p>
@@ -810,6 +859,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Sol</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong>El ganador del favor de los Profetas se determina en función del número de runas. Si hay al menos 3 runas combinadas en la pila de Simpatizantes de un jugador, el Profeta con el mayor valor gana. Si no hay menos de 3 runas, el Profeta con el menor valor gana la baza. <br><br>Las runas son iconos <img src="icons/factions/Runa.png" alt="Runa" width="20"> en las cartas de Profeta.</p>
             </div>
@@ -823,6 +873,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Sol</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong> Fases 1 y 2: cuando se juega una baza con un Gusano de Arena, se juega boca abajo. Cuando todos los jugadores han jugado carta, las cartas se revelan.</p>
             </div>
@@ -836,6 +887,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Sol</span>
                 <span class="tag">10 Cartas (0-9) + 6 Cartas de picadura</span>
                 <p><strong>Poder (Fase 2): </strong>Cuando añades un Escorpión a tu pila de Simpatizantes, debes tomar una carta de picadura. Las cartas de picadura te darán una penalización o un bonus especial para la siguiente baza que juegues. Después, se descartan. Si el mazo de picaduras se agota, baraja el descarte para formar un nuevo mazo.</p>
             </div>
@@ -854,6 +906,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Agua</span>
                 <span class="tag">11 Cartas (0-10)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Royal-Navy.png" alt="Marines" class="icon-link" onclick="goToAnchor('royal-navy'); return false;"></span>                                   
                 <p><strong>Poder: </strong> Al final de la partida, si un jugador tiene un Pirata y un Royal Navy del mismo valor, el Pirata es arrestado. Dicho Pirata cuenta como una carta de Royal Navy para determinar la mayoría de la facción (ya no cuenta como Pirata).</p>
@@ -868,6 +921,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Agua</span>
                 <span class="tag">11 Cartas (0-10)</span>
                 <span class="faction-link">🔗<img src="icons/factions/Piratas.png" alt="Piratas" class="icon-link" onclick="goToAnchor('piratas'); return false;"></span>                
                 <p><strong>Poder: </strong> Al final de la partida, si un jugador tiene un Pirata y un Royal Navy del mismo valor, el Pirata es arrestado. Dicho Pirata cuenta como una carta de Royal Navy para determinar la mayoría de la facción (ya no cuenta como Pirata).</p>
@@ -882,6 +936,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Agua</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong> Fase 1: si un Monstruo marino es revelado como carta central, los jugadores deben intercambiar una carta de su mano cada uno. Las cartas con el otro jugador se intercambian boca abajo.</p>
             </div>
@@ -895,6 +950,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Agua</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong> Las cartas de valor ≥ 8 de cualquier otra facción ganan siempre a un Pulpo (tenga éste el valor que tenga).</p>
             </div>
@@ -908,6 +964,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Refuerzos: Agua</span>
                 <span class="tag">10 Cartas (0-9) + 6 Cartas de Tridente</span>
                 <p><strong>Poder (Fases 1 y 2): </strong>Si pierdes una baza en la que jugaste un Hombre pez, toma una carta de tridente del mazo de robo o de otro jugador si el mazo de tridentes se ha agotado. El valor de todos los Hombres pez se incrementa en +1 por cada carta de tridente que poseas.</p>
             </div>
@@ -926,6 +983,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Promo</span>
                 <span class="tag">10 Cartas (1-7)</span>
                 <p><strong>Poder (Fase 2): </strong>Si ganas un Elfo oscuro en una baza, debes descartar y retirar del juego una carta de otra facción en tu pila de simpatizantes. Si solamente hay Elfos oscuros entre tus simpatizantes, no tienes que descartar ninguna carta. Si ganas más de un Elfo oscuro en una baza, sigues teniendo que descartar solo una carta de otra facción.</p>
             </div>
@@ -939,6 +997,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Promo</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong>Puedes añadir el Fantasma a tu pila de seguidores perdiendo la carta que normalmente adquirirías, tanto si pierdes como si ganas la baza. Si ganas y te quedas con el Fantasma, ponlo en tu pila de seguidores y descarta la carta boca arriba sobre la mesa. Si pierdes y eliges quedarte con el Fantasma, ponlo en tu pila de seguidores y descarta la primera carta del mazo boca abajo (sin mirarla).</p>
             </div>
@@ -952,6 +1011,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Promo</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong>Cuando obtienes una Sirena para tu pila de simpatizantes, colócala boca arriba. Tus siguientes cartas jugadas obtienen -1/por cada Sirena que haya.</p>
             </div>
@@ -965,6 +1025,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Promo</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong>Si eres el líder y ganas la baza jugando un Minotauro, el otro jugador puede devolver la carta que jugó a su mano.</p>
             </div>
@@ -978,6 +1039,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Promo</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong>Si un Manitas gana a otra carta superando su valor en ≥ 4, ¡el Manitas explota! La otra carta se descarta del juego. El jugador que jugó al Manitas sigue considerándose el ganador de la baza.</p>
             </div>
@@ -991,6 +1053,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Promo</span>
                 <span class="tag">10 Cartas (3-12)</span>
                 <p><strong>Poder: </strong>Si una Valkiria se juega tras cualquier otra carta de facción y el valor de la Valkiria supera en ≥ 3 al valor de la primera carta, la Valkiria se convierte en una carta de esa otra facción a todos los efectos.</p>
             </div>
@@ -1009,6 +1072,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Big box</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong>Si la carta por la que los jugadores compiten es un Sátiro, el segundo jugador no tiene que seguir la regla del arrastre. El valor más alto de las cartas jugadas gana la baza, independientemente de la facción que comenzó.</p>
             </div>
@@ -1022,6 +1086,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Big box</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong>Tras la Fase 1, baraja las cartas descartadas para formar un mazo de cementerio. Si en la Fase 2 ganas una baza con un Resucitador, roba una carta del mazo de cementerio y añádela a tu pila de simpatizantes.</p>
             </div>
@@ -1040,6 +1105,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">V Aniversario</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong>Si ganas una baza con una carta de Autómata, ganas también la siguiente baza de forma automática.</p>
             </div>
@@ -1053,6 +1119,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">V Aniversario</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong>El voto de los Bardos lo gana aquel jugador que tenga una mayor cantidad de Bardos de valores consecutivos. En caso de empate, gana el que tenga el Bardo de mayor valor dentro de esta serie.</p>
             </div>
@@ -1066,6 +1133,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">V Aniversario</span>
                 <span class="tag">14 Cartas (0-13)</span>
                 <p><strong>Poder: </strong>Cada Mapache con <img src="icons/factions/Botín.png" alt="Runa" width="20"> (botín) aumenta en 1 el número de cartas de la facción con menos votos que tengas.</p>
             </div>
@@ -1079,6 +1147,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">V Aniversario</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 2): </strong>Si un jugador con Grifos en su pila de Simpatizantes juega una carta con un valor igual a uno de ellos, su valor aumenta en +5.</p>
             </div>
@@ -1092,6 +1161,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">V Aniversario</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong>Una carta de Vikingo cuenta como dos votos si hay otra carta de cualquier facción el mismo valor en la pila de Simpatizantes.</p>
             </div>
@@ -1105,6 +1175,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">V Aniversario</span>
                 <span class="tag">13 Cartas (0-12)</span>
                 <p><strong>Poder: </strong>Un Campesino abandona tu reino si no tienes una carta de Realeza del mismo valor o de hasta un máximo de 3 superior.</p>
             </div>
@@ -1118,6 +1189,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">V Aniversario</span>
                 <span class="tag">9 Cartas (4-12)</span>
                 <p><strong>Poder: </strong>Un Campesino abandona tu reino si no tienes una carta de Realeza del mismo valor o de hasta un máximo de 3 superior.</p>
             </div>
@@ -1137,6 +1209,7 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Alianzas</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder (Fase 1): </strong>Si ganas una baza con un Úrsido, puedes colocar la siguiente carta revelada en la parte inferior del mazo y sacar una nueva carta.</p>
             </div>
@@ -1150,13 +1223,12 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
+                <span class="box">Alianzas</span>
                 <span class="tag">10 Cartas (0-9)</span>
                 <p><strong>Poder: </strong>Al final de la partida, el Insectoide se arrastrará hasta el otro jugador si no tienes otra carta de Insectoide con un valor 1 o 2 puntos inferior o superior.</p>
             </div>
         </div>      
     </div>     
-
-
 </div>
 
 <footer>
