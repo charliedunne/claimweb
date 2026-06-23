@@ -101,14 +101,14 @@
 			flex-shrink: 0;
 		}
 		.icon-text{
-			width: 20px;
+			width: auto;
 			height: auto;
 			object-fit: contain;
 			flex-shrink: 0;
 		}
 		.icon-link{
-			height: 30px;
-			object-fit: contain;
+            height: 30px;
+            object-fit: contain;
 			align-items: center;
 			flex-shrink: 0;
 		}		
@@ -134,15 +134,19 @@
             font-weight: bold;
         }
         .faction-link {
+
             margin-left: auto;
             justify-content: flex-end;
-            background: #ebeae4;
+            background: #f2f3cc;
             color: #000000;
             padding: 0.2rem 0.5rem;
             border-radius: 8px;
             font-size: 0.8rem;
             margin-bottom: 0.5rem;
             font-weight: bold;
+            align-items: center;
+            justify-content: center;
+            display: flex;
         }
         .card-content p {
             width: 100%; /* ocupa una línea completa */
@@ -191,7 +195,7 @@
 		<button class="nav-btn" onclick="scrollToSection('sol')">Sol</button>
 		<button class="nav-btn" onclick="scrollToSection('promo')">Promo</button>
         <button class="nav-btn" onclick="scrollToSection('big-box')">Big Box</button>
-        <button class="nav-btn" onclick="scrollToSection('5anniversary')">5th Anniversary</button>
+        <button class="nav-btn" onclick="scrollToSection('vaniversario')">V Aniversario</button>
         <button class="nav-btn" onclick="scrollToSection('alianzas')">Alianzas</button>
     </div>
 
@@ -209,35 +213,35 @@
         <div id="goblins" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)"> 
 				<div class="card-title">
-					<img src="icons/Goblins.png" alt="Goblins" class="icon"> 
+					<img src="icons/factions/Goblins.png" alt="Goblins" class="icon"> 
 					<span>Goblins</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">14 Cartas (0-9)</span>
-                <span class="faction-link">🔗<img src="icons/Caballeros.png" alt="Caballeros" class="icon-link" onclick="goToAnchor('caballeros'); return false;"></span>
+                <span class="faction-link">🔗<img src="icons/factions/Caballeros.png" alt="Caballeros" class="icon-link" onclick="goToAnchor('caballeros'); return false;"></span>
                 <p><strong>Poder: </strong> No tienen poderes especiales.</p>
             </div>
         </div>
         <div id="caballeros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)"> 
 				<div class="card-title">
-					<img src="icons/Caballeros.png" alt="Caballeros" class="icon"> 
+					<img src="icons/factions/Caballeros.png" alt="Caballeros" class="icon"> 
 					<span>Caballeros</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">8 Cartas (2-9)</span>
-                <span class="faction-link">🔗<img src="icons/Goblins.png" alt="Goblins" class="icon-link" onclick="goToAnchor('goblins'); return false;"></span>                
+                <span class="faction-link">🔗<img src="icons/factions/Goblins.png" alt="Goblins" class="icon-link" onclick="goToAnchor('goblins'); return false;"></span>                
                 <p><strong>Poder: </strong> Cuando juegas un Caballero después de un Goblin, el Caballero gana automáticamente al Goblin, independientemente de su valor. Debes seguir la regla de arrastre si puedes.</p>
             </div>
         </div>
         <div id="enanos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Enanos.png" alt="Enanos" class="icon"> 
+					<img src="icons/factions/Enanos.png" alt="Enanos" class="icon"> 
 					<span>Enanos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -250,7 +254,7 @@
         <div id="no-muertos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/No-muertos.png" alt="No-muertos" class="icon"> 
+					<img src="icons/factions/No-muertos.png" alt="No-muertos" class="icon"> 
 					<span>No Muertos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -263,7 +267,7 @@
         <div id="doppelgangers" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Doppelgängers.png" alt="Doppelgängers" class="icon"> 
+					<img src="icons/factions/Doppelgängers.png" alt="Doppelgängers" class="icon"> 
 					<span>Doppelgängers</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -281,33 +285,35 @@
         <div id="gnomos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Gnomos.png" alt="Gnomos" class="icon"> 
+					<img src="icons/factions/Gnomos.png" alt="Gnomos" class="icon"> 
 					<span>Gnomos</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>			
             <div class="card-content">
                 <span class="tag">13 Cartas (Impares 1-9)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Gigantes.png" alt="Gigantes" class="icon-link" onclick="goToAnchor('gigantes'); return false;"></span>
                 <p><strong>Poder (Fase 2): </strong> Se colocan boca arriba delante de ti, no en la pila de Simpatizantes. Al final de la partida, los que queden se mueven a la pila de Simpatizantes.</p>
             </div>
         </div>
         <div id="gigantes" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Gigantes.png" alt="Gigantes" class="icon"> 
+					<img src="icons/factions/Gigantes.png" alt="Gigantes" class="icon"> 
 					<span>Gigantes</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>			
             <div class="card-content">
                 <span class="tag">9 Cartas (Impares 1-9)</span>
+                                <span class="faction-link">🔗<img src="icons/factions/Gnomos.png" alt="Gnomos" class="icon-link" onclick="goToAnchor('gnomos'); return false;"></span>
                 <p><strong>Poder (Fase 2): </strong> Si ganas la baza, cada Gigante jugado puede aplastar un Gnomo del oponente del mismo valor. El Gnomo aplastado se descarta y no puntúa.</p>
             </div>
         </div>
         <div id="dragones" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Dragones.png" alt="Dragones" class="icon"> 
+					<img src="icons/factions/Dragones.png" alt="Dragones" class="icon"> 
 					<span>Dragones</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -320,7 +326,7 @@
         <div id="trolls" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Trolls.png" alt="Trolls" class="icon"> 
+					<img src="icons/factions/Trolls.png" alt="Trolls" class="icon"> 
 					<span>Trolls</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -333,7 +339,7 @@
         <div id="videntes" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Videntes.png" alt="Videntes" class="icon"> 
+					<img src="icons/factions/Videntes.png" alt="Videntes" class="icon"> 
 					<span>Videntes</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -351,7 +357,7 @@
         <div id="cilopes" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Cíclopes.png" alt="Cíclopes" class="icon"> 
+					<img src="icons/factions/Cíclopes.png" alt="Cíclopes" class="icon"> 
 					<span>Cíclopes</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -364,35 +370,35 @@
         <div id="elfos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Elfos.png" alt="Elfos" class="icon"> 
+					<img src="icons/factions/Elfos.png" alt="Elfos" class="icon"> 
 					<span>Elfos</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">7 Cartas (1-7).</span>
-				<span class="faction-link"><img src="icons/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon-link" onclick="goToAnchor('elfos-orcos'); return false;"></span>
+                <span class="faction-link">🔗<img src="icons/factions/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon-link" onclick="goToAnchor('elfos-orcos'); return false;"></span>			
                 <p><strong>Poder: </strong> Sin poder especial</p>
             </div>
         </div>
         <div id="orcos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Orcos.png" alt="Orcos" class="icon"> 
+					<img src="icons/factions/Orcos.png" alt="Orcos" class="icon"> 
 					<span>Orcos</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">7 Cartas (1-7)</span>
-				<span class="faction-link"><img src="icons/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon-link" onclick="goToAnchor('elfos-orcos'); return false;"></span>
+				<span class="faction-link">🔗<img src="icons/factions/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon-link" onclick="goToAnchor('elfos-orcos'); return false;"></span>
                 <p><strong>Poder: </strong>Sin poder especial.</p>
             </div>
         </div>
 		<div id="elfos-orcos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon"> 
+					<img src="icons/factions/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon"> 
 					<span>Elfos/Orcos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -407,15 +413,8 @@
             <div class="card-content">
                 <p>No cuentan como facción para la puntuación. Prevalecen sobre poderes de facciones.</p>
                 <p><strong>Ejemplos: </strong> Bardo (líder siguiente), Arquero (gana si líder juega 5-6), Muerdevidas (copia habilidades), Gárgola (cuenta como 2 cartas de facción), Hombre Lobo (cambia valor a 5 y facción), La Muerte (nadie gana simpatizantes), etc.</p>
-            </div>
+            </div> 
         </div>
-        <div class="card searchable">
-            <div class="card-header" onclick="toggleCard(this)"> Héroes (18 Cartas) <span class="arrow">▼</span></div>
-            <div class="card-content">
-                <p>No cuentan como facción para la puntuación. Prevalecen sobre poderes de facciones.</p>
-                <p><strong>Ejemplos: </strong> Bardo (líder siguiente), Arquero (gana si líder juega 5-6), Muerdevidas (copia habilidades), Gárgola (cuenta como 2 cartas de facción), Hombre Lobo (cambia valor a 5 y facción), La Muerte (nadie gana simpatizantes), etc.</p>
-            </div>
-        </div>		
     </div>
 
     <!-- MAGIA -->
@@ -424,7 +423,7 @@
         <div id="magos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Magos.png" alt="Magos" class="icon"> 
+					<img src="icons/factions/Magos.png" alt="Magos" class="icon"> 
 					<span>Magos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -437,7 +436,7 @@
         <div id="druidas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Druidas.png" alt="Druidas" class="icon"> 
+					<img src="icons/factions/Druidas.png" alt="Druidas" class="icon"> 
 					<span>Druidas</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -450,7 +449,7 @@
         <div id="cambiaformas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Cambiaformas.png" alt="Cambiaformas" class="icon"> 
+					<img src="icons/factions/Cambiaformas.png" alt="Cambiaformas" class="icon"> 
 					<span>Cambiaformas</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -475,7 +474,7 @@
         <div id="basiliscos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Basiliscos.png" alt="Basiliscos" class="icon"> 
+					<img src="icons/factions/Basiliscos.png" alt="Basiliscos" class="icon"> 
 					<span>Basiliscos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -488,7 +487,7 @@
         <div id="fenix" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Fénix.png" alt="Fénix" class="icon"> 
+					<img src="icons/factions/Fénix.png" alt="Fénix" class="icon"> 
 					<span>Fénix</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -501,7 +500,7 @@
         <div id="unicornios" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Unicornios.png" alt="Unicornios" class="icon"> 
+					<img src="icons/factions/Unicornios.png" alt="Unicornios" class="icon"> 
 					<span>Unicornios</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -526,7 +525,7 @@
         <div id="vampiros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Vampiros.png" alt="Vampiros" class="icon"> 
+					<img src="icons/factions/Vampiros.png" alt="Vampiros" class="icon"> 
 					<span>Vampiros</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -539,7 +538,7 @@
         <div id="zombis" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Zombis.png" alt="Zombis" class="icon"> 
+					<img src="icons/factions/Zombis.png" alt="Zombis" class="icon"> 
 					<span>Zombis</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -552,7 +551,7 @@
         <div id="hombres-lobo" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Hombres-Lobo.png" alt="Hombres Lobo" class="icon"> 
+					<img src="icons/factions/Hombres-Lobo.png" alt="Hombres Lobo" class="icon"> 
 					<span>Hombres Lobo</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -565,7 +564,7 @@
         <div id="sombras" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Sombras.png" alt="Sombras" class="icon"> 
+					<img src="icons/factions/Sombras.png" alt="Sombras" class="icon"> 
 					<span>Sombras</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -583,7 +582,7 @@
         <div id="demonios" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Demonios.png" alt="Demonios" class="icon"> 
+					<img src="icons/factions/Demonios.png" alt="Demonios" class="icon"> 
 					<span>Demonios</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -596,7 +595,7 @@
         <div id="elementales-de-fuego" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Elementales-de-Fuego.png" alt="Elementales de Fuego" class="icon"> 
+					<img src="icons/factions/Elementales-de-Fuego.png" alt="Elementales de Fuego" class="icon"> 
 					<span>Elementales de Fuego</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -609,7 +608,7 @@
         <div id="picaros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Pícaros.png" alt="Pícaros" class="icon"> 
+					<img src="icons/factions/Pícaros.png" alt="Pícaros" class="icon"> 
 					<span>Pícaros</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -622,7 +621,7 @@
         <div id="envenenadores" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Envenenadores.png" alt="Envenenadores" class="icon"> 
+					<img src="icons/factions/Envenenadores.png" alt="Envenenadores" class="icon"> 
 					<span>Envenenadores</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -640,33 +639,35 @@
         <div id="reyes-de-hielo" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Reyes-de-Hielo.png" alt="Reyes de Hielo" class="icon"> 
+					<img src="icons/factions/Reyes-de-Hielo.png" alt="Reyes de Hielo" class="icon"> 
 					<span>Reyes de Hielo</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">11 Cartas (0-10)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Reinas-de-Hielo.png" alt="Reinas de Hielo" class="icon-link" onclick="goToAnchor('reinas-de-hielo'); return false;"></span>
                 <p><strong>Poder: </strong> Antes de determinar el voto de la facción: descarta de la pila de simpatizantes todas las parejas de Rey del hielo/Reina del hielo que tengan el mismo valor: ¡se casan y se escapan!.</p>
             </div>
         </div>
         <div id="reinas-de-hielo" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Reinas-de-Hielo.png" alt="Reinas de Hielo" class="icon"> 
+					<img src="icons/factions/Reinas-de-Hielo.png" alt="Reinas de Hielo" class="icon"> 
 					<span>Reinas de Hielo</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">11 Reinas (0-10)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Reyes-de-Hielo.png" alt="Reyes de Hielo" class="icon-link" onclick="goToAnchor('reyes-de-hielo'); return false;"></span>                
                 <p><strong>Poder: </strong> Antes de determinar el voto de la facción: descarta de la pila de simpatizantes todas las parejas de Rey del hielo/Reina del hielo que tengan el mismo valor: ¡se casan y se escapan!.</p>
             </div>
         </div>		
         <div id="yetis" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Yetis.png" alt="Yetis" class="icon"> 
+					<img src="icons/factions/Yetis.png" alt="Yetis" class="icon"> 
 					<span>Yetis</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -679,7 +680,7 @@
         <div id="bestias-del-hielo" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Bestias-del-Hielo.png" alt="Bestias de Hielo" class="icon"> 
+					<img src="icons/factions/Bestias-del-Hielo.png" alt="Bestias de Hielo" class="icon"> 
 					<span>Bestias del Hielo</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -703,33 +704,35 @@
         <div id="angeles" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Ángeles.png" alt="Ángeles" class="icon"> 
+					<img src="icons/factions/Ángeles.png" alt="Ángeles" class="icon"> 
 					<span>Ángeles</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">12 Cartas (0-11)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Ágilas.png" alt="Ágilas" class="icon-link" onclick="goToAnchor('agilas'); return false;"></span>   
                 <p><strong>Poder: </strong> Al final de la partida, si no hay otras cartas en tu pila de Simpatizantes con el mismo número que una determinada carta de Ángel, esa carta cuenta x2 para determinar el apoyo de la facción.</p>
             </div>
         </div>
         <div id="agilas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Ágilas.png" alt="Ágilas" class="icon"> 
+					<img src="icons/factions/Ágilas.png" alt="Ágilas" class="icon"> 
 					<span>Ágilas</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">12 Cartas (0-11)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Ángeles.png" alt="Ángeles" class="icon-link" onclick="goToAnchor('angeles'); return false;"></span>
                 <p><strong>Poder: </strong> Las Águilas no pueden liderar dos bazas consecutivas, a excepción de que el jugador únicamente tenga Águilas en la mano.</p>
             </div>
         </div>		
         <div id="pterosaurios" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Pterosaurios.png" alt="Pterosaurios" class="icon"> 
+					<img src="icons/factions/Pterosaurios.png" alt="Pterosaurios" class="icon"> 
 					<span>Pterosaurios</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -742,7 +745,7 @@
         <div id="elementales-de-luz" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Elementales-de-Luz.png" alt="Elementales de Luz" class="icon"> 
+					<img src="icons/factions/Elementales-de-Luz.png" alt="Elementales de Luz" class="icon"> 
 					<span>Elementales de Luz</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -755,7 +758,7 @@
         <div id="buitres" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Buitres.png" alt="Buitres" class="icon"> 
+					<img src="icons/factions/Buitres.png" alt="Buitres" class="icon"> 
 					<span>Buitres</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -773,46 +776,48 @@
         <div id="monjes-del-sol" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Monjes-de-Sol.png" alt="Monjes Solares" class="icon"> 
+					<img src="icons/factions/Monjes-de-Sol.png" alt="Monjes Solares" class="icon"> 
 					<span>Monjes Solares</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">11 Cartas (0-10)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Monjes-de-la-Estrella.png" alt="Monjes Estelares" class="icon-link" onclick="goToAnchor('monjes-de-la-estrella'); return false;"></span>                   
                 <p><strong>Poder: </strong> Cuando se juega un Monje del Sol, una regla especial del arrastre obliga al otro jugador a jugar un Monje de la Estrella. Si el otro jugador acompaña correctamente, el valor más alto de ambos gana la baza. Un Monje del Sol jugado tras otro Monje del Sol se consideran de facciones distintas, ganando la baza automáticamente el primer jugador.</p>
             </div>
         </div>
         <div id="monjes-de-la-estrella" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Monjes-de-la-estrella.png" alt="Monjes Estelares" class="icon"> 
+					<img src="icons/factions/Monjes-de-la-estrella.png" alt="Monjes Estelares" class="icon"> 
 					<span>Monjes Estelares</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">11 Cartas (0-10)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Monjes-de-Sol.png" alt="Monjes Solares" class="icon-link" onclick="goToAnchor('monjes-del-sol'); return false;"></span>                                   
                 <p><strong>Poder: </strong> Cuando se juega un Monje de la Estrella, una regla especial del arrastre obliga al otro jugador a jugar un Monje del Sol. Si el otro jugador acompaña correctamente, el valor más alto de ambos gana la baza. Un Monje de la Estrella jugado tras otro Monje de la Estrella se consideran de facciones distintas, ganando la baza automáticamente el primer jugador.</p>
             </div>
         </div>		
         <div id="profetas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Profetas.png" alt="Profetas" class="icon"> 
+					<img src="icons/factions/Profetas.png" alt="Profetas" class="icon"> 
 					<span>Profetas</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">10 Cartas (0-9)</span>
-                <p><strong>Poder: </strong> Fase 2: el ganador del favor de los Profetas se determina en función del número de runas. Si hay al menos 3 runas combinadas en la pila de Simpatizantes de un jugador, el Profeta con el mayor valor gana. Si no hay menos de 3 runas, el Profeta con el menor valor gana la baza. <br><br>Las runas son iconos <img src="icons/Runa.png" alt="Runa" width="20"> en las cartas de Profeta.</p>
+                <p><strong>Poder (Fase 2): </strong>El ganador del favor de los Profetas se determina en función del número de runas. Si hay al menos 3 runas combinadas en la pila de Simpatizantes de un jugador, el Profeta con el mayor valor gana. Si no hay menos de 3 runas, el Profeta con el menor valor gana la baza. <br><br>Las runas son iconos <img src="icons/factions/Runa.png" alt="Runa" width="20"> en las cartas de Profeta.</p>
             </div>
         </div>
         <div id="gusanos-de-arena" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Gusanos-de-arena.png" alt="Gusanos de arena" class="icon"> 
+					<img src="icons/factions/Gusanos-de-arena.png" alt="Gusanos de arena" class="icon"> 
 					<span>Gusanos de arena</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -825,14 +830,14 @@
         <div id="escorpiones" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Escorpiones.png" alt="Escorpiones" class="icon"> 
+					<img src="icons/factions/Escorpiones.png" alt="Escorpiones" class="icon"> 
 					<span>Escorpiones</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">10 Cartas (0-9) + 6 Cartas de picadura</span>
-                <p><strong>Poder: </strong> Fase 2: cuando añades un Escorpión a tu pila de Simpatizantes, debes tomar una carta de picadura. Las cartas de picadura te darán una penalización o un bonus especial para la siguiente baza que juegues. Después, se descartan. Si el mazo de picaduras se agota, baraja el descarte para formar un nuevo mazo.</p>
+                <p><strong>Poder (Fase 2): </strong>Cuando añades un Escorpión a tu pila de Simpatizantes, debes tomar una carta de picadura. Las cartas de picadura te darán una penalización o un bonus especial para la siguiente baza que juegues. Después, se descartan. Si el mazo de picaduras se agota, baraja el descarte para formar un nuevo mazo.</p>
             </div>
         </div>		
     </div>	
@@ -843,33 +848,35 @@
         <div id="piratas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Piratas.png" alt="Piratas" class="icon"> 
+					<img src="icons/factions/Piratas.png" alt="Piratas" class="icon"> 
 					<span>Piratas</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">11 Cartas (0-10)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Royal-Navy.png" alt="Marines" class="icon-link" onclick="goToAnchor('royal-navy'); return false;"></span>                                   
                 <p><strong>Poder: </strong> Al final de la partida, si un jugador tiene un Pirata y un Royal Navy del mismo valor, el Pirata es arrestado. Dicho Pirata cuenta como una carta de Royal Navy para determinar la mayoría de la facción (ya no cuenta como Pirata).</p>
             </div>
         </div>
         <div id="royal-navy" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Royal-Navy.png" alt="Royal Navy" class="icon"> 
+					<img src="icons/factions/Royal-Navy.png" alt="Royal Navy" class="icon"> 
 					<span>Royal Navy</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">11 Cartas (0-10)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Piratas.png" alt="Piratas" class="icon-link" onclick="goToAnchor('piratas'); return false;"></span>                
                 <p><strong>Poder: </strong> Al final de la partida, si un jugador tiene un Pirata y un Royal Navy del mismo valor, el Pirata es arrestado. Dicho Pirata cuenta como una carta de Royal Navy para determinar la mayoría de la facción (ya no cuenta como Pirata).</p>
             </div>
         </div>		
         <div id="monstruos-marinos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Monstruos-Marinos.png" alt="Monstruos Marinos" class="icon"> 
+					<img src="icons/factions/Monstruos-Marinos.png" alt="Monstruos Marinos" class="icon"> 
 					<span>Monstruos Marinos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -882,7 +889,7 @@
         <div id="pulpos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Pulpos.png" alt="Pulpos" class="icon"> 
+					<img src="icons/factions/Pulpos.png" alt="Pulpos" class="icon"> 
 					<span>Pulpos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -895,14 +902,14 @@
         <div id="hombres-pez" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Hombres-pez.png" alt="Hombres Pez" class="icon"> 
+					<img src="icons/factions/Hombres-pez.png" alt="Hombres Pez" class="icon"> 
 					<span>Hombres Pez</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">10 Cartas (0-9) + 6 Cartas de Tridente</span>
-                <p><strong>Poder: </strong> Fases 1 y 2: si pierdes una baza en la que jugaste un Hombre pez, toma una carta de tridente del mazo de robo o de otro jugador si el mazo de tridentes se ha agotado. El valor de todos los Hombres pez se incrementa en +1 por cada carta de tridente que poseas.</p>
+                <p><strong>Poder (Fases 1 y 2): </strong>Si pierdes una baza en la que jugaste un Hombre pez, toma una carta de tridente del mazo de robo o de otro jugador si el mazo de tridentes se ha agotado. El valor de todos los Hombres pez se incrementa en +1 por cada carta de tridente que poseas.</p>
             </div>
         </div>		
     </div>	
@@ -913,7 +920,7 @@
         <div id="elfos-oscuros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Elfos-Oscuros.png" alt="Elfos Oscuros" class="icon"> 
+					<img src="icons/factions/Elfos-Oscuros.png" alt="Elfos Oscuros" class="icon"> 
 					<span>Elfos Oscuros</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -926,7 +933,7 @@
         <div id="fantasmas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Fantasmas.png" alt="Fantasmas" class="icon"> 
+					<img src="icons/factions/Fantasmas.png" alt="Fantasmas" class="icon"> 
 					<span>Fantasmas</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -939,7 +946,7 @@
         <div id="sirenas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Sirenas.png" alt="Sirenas" class="icon"> 
+					<img src="icons/factions/Sirenas.png" alt="Sirenas" class="icon"> 
 					<span>Sirenas</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -952,7 +959,7 @@
         <div id="minotauros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Minotauros.png" alt="Minotauros" class="icon"> 
+					<img src="icons/factions/Minotauros.png" alt="Minotauros" class="icon"> 
 					<span>Minotauros</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -965,7 +972,7 @@
         <div id="manitas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Manitas.png" alt="Manitas" class="icon"> 
+					<img src="icons/factions/Manitas.png" alt="Manitas" class="icon"> 
 					<span>Manitas</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -978,7 +985,7 @@
         <div id="valkirias" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Valkirias.png" alt="Valkirias" class="icon"> 
+					<img src="icons/factions/Valkirias.png" alt="Valkirias" class="icon"> 
 					<span>Valkirias</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -996,7 +1003,7 @@
         <div id="satiros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Sátiros.png" alt="Sátiros" class="icon"> 
+					<img src="icons/factions/Sátiros.png" alt="Sátiros" class="icon"> 
 					<span>Sátiros</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1009,7 +1016,7 @@
         <div id="resucitadores" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Resucitadores.png" alt="Resucitadores" class="icon"> 
+					<img src="icons/factions/Resucitadores.png" alt="Resucitadores" class="icon"> 
 					<span>Resucitadores</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1027,7 +1034,7 @@
         <div id="automatas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Autómatas.png" alt="Autómatas" class="icon"> 
+					<img src="icons/factions/Autómatas.png" alt="Autómatas" class="icon"> 
 					<span>Autómatas</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1040,7 +1047,7 @@
         <div id="bardos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Bardos.png" alt="Bardos" class="icon"> 
+					<img src="icons/factions/Bardos.png" alt="Bardos" class="icon"> 
 					<span>Bardos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1053,20 +1060,20 @@
         <div id="mapaches" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Mapaches.png" alt="Mapaches" class="icon"> 
+					<img src="icons/factions/Mapaches.png" alt="Mapaches" class="icon"> 
 					<span>Mapaches</span> 
 				</div>
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
                 <span class="tag">14 Cartas (0-13)</span>
-                <p><strong>Poder: </strong>Cada Mapache con <img src="icons/Botín.png" alt="Runa" width="20"> (botín) aumenta en 1 el número de cartas de la facción con menos votos que tengas.</p>
+                <p><strong>Poder: </strong>Cada Mapache con <img src="icons/factions/Botín.png" alt="Runa" width="20"> (botín) aumenta en 1 el número de cartas de la facción con menos votos que tengas.</p>
             </div>
         </div>
         <div id="grifos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Grifos.png" alt="Grifos" class="icon"> 
+					<img src="icons/factions/Grifos.png" alt="Grifos" class="icon"> 
 					<span>Grifos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1079,7 +1086,7 @@
         <div id="vikingos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Vikingos.png" alt="Vikingos" class="icon"> 
+					<img src="icons/factions/Vikingos.png" alt="Vikingos" class="icon"> 
 					<span>Vikingos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1092,7 +1099,7 @@
         <div id="campesinos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Campesinos.png" alt="Campesinos" class="icon"> 
+					<img src="icons/factions/Campesinos.png" alt="Campesinos" class="icon"> 
 					<span>Campesinos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1105,7 +1112,7 @@
         <div id="realeza" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Realeza.png" alt="Realeza" class="icon"> 
+					<img src="icons/factions/Realeza.png" alt="Realeza" class="icon"> 
 					<span>Realeza</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1124,7 +1131,7 @@
         <div id="ursidos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Úrsidos.png" alt="Úrsidos" class="icon"> 
+					<img src="icons/factions/Úrsidos.png" alt="Úrsidos" class="icon"> 
 					<span>Úrsidos</span> 
 				</div>
 				<span class="arrow">▼</span>
@@ -1137,7 +1144,7 @@
         <div id="insectoides" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
-					<img src="icons/Insectoides.png" alt="Insectoides" class="icon"> 
+					<img src="icons/factions/Insectoides.png" alt="Insectoides" class="icon"> 
 					<span>Insectoides</span> 
 				</div>
 				<span class="arrow">▼</span>
