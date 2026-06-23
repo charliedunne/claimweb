@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Referencia: Claim!</title>
+    <style>
+		html {
+			scroll-behavior: smooth;
+			scroll-padding-top: 260px;
+		}
+        :root {
+            --primary: #2c3e50;
+            --accent: #8e44ad;
+            --bg: #ecf0f1;
+            --card-bg: #ffffff;
+            --text: #34495e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { margin: 0 0 0.5rem 0; font-size: 1.8rem; }
+        h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-top: 2rem; }
+        .container { max-width: 800px; margin: 0 auto; padding: 1rem; }
+        
+        .search-box {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .nav-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .nav-btn:hover { background-color: #732d91; }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border-left: 5px solid var(--accent);
+        }
+        .card-header {
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+		.card-title {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+        .card-header:hover { background-color: #f8f9fa; }
+        .arrow { 
+			margin-left: auto;
+			transition: transform 0.3s ease; 
+		}
+        .arrow.active { transform: rotate(180deg); }
+        .icon {
+			width: 50px;
+			height: 50px;
+			object-fit: contain;
+			flex-shrink: 0;
+		}
+		.icon-text{
+			width: 20px;
+			height: auto;
+			object-fit: contain;
+			flex-shrink: 0;
+		}
+		.icon-link{
+			width: 25px;
+			height: auto;
+			object-fit: contain;
+			align-items: center;
+			flex-shrink: 0;
+		}		
+        .card-content {
+            display: none;
+            padding: 0 1rem 1rem 1rem;
+            border-top: 1px solid #eee;
+        }
+        .card-content p { margin: 0.8rem 0 0 0; }
+        .card-content strong { color: var(--primary); }
+        .tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .faction-link {
+            display: inline-block;
+            background: #ffe1ac;
+            color: #2e7d32;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }		
+        .rules-box {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📜 Guía de Claim!</h1>
+    <p>Referencia rápida de facciones y reglas</p>
+	<div class="container">
+		<input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar facción o habilidad...">
+	</div>
+</header>
+
+<div class="container">
+<!--    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar facción o habilidad..."> -->
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="scrollToSection('reglas')">Reglas Básicas</button>
+        <button class="nav-btn" onclick="scrollToSection('base1')">Claim 1</button>
+        <button class="nav-btn" onclick="scrollToSection('base2')">Claim 2</button>
+        <button class="nav-btn" onclick="scrollToSection('mercenarios')">Mercenarios</button>
+        <button class="nav-btn" onclick="scrollToSection('magia')">Magia</button>
+        <button class="nav-btn" onclick="scrollToSection('mapas')">Mapas</button>
+        <button class="nav-btn" onclick="scrollToSection('terror')">Terror</button>
+        <button class="nav-btn" onclick="scrollToSection('fuego')">Fuego</button>
+        <button class="nav-btn" onclick="scrollToSection('hielo')">Hielo</button>
+		<button class="nav-btn" onclick="scrollToSection('cielo')">Cielo</button>
+		<button class="nav-btn" onclick="scrollToSection('agua')">Agua</button>
+		<button class="nav-btn" onclick="scrollToSection('sol')">Sol</button>
+		<button class="nav-btn" onclick="scrollToSection('promo')">Promo</button>
+        <button class="nav-btn" onclick="scrollToSection('big-box')">Big Box</button>
+        <button class="nav-btn" onclick="scrollToSection('5anniversary')">5th Anniversary</button>
+        <button class="nav-btn" onclick="scrollToSection('alianzas')">Alianzas</button>
+    </div>
+
+    <div id="reglas" class="rules-box">
+        <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Flujo del Juego</h2>
+        <p><strong>Fase 1 - Reclutar: </strong> 13 bazas. Se revela 1 carta del mazo. El líder juega una carta, el rival debe seguir facción si puede (Regla de Arrastre). Gana la carta del centro el de valor más alto de la facción líder. El perdedor roba del mazo.</p>
+        <p><strong>Fase 2 - Simpatizantes: </strong> 13 bazas con las cartas ganadas. Se compite por las 2 cartas jugadas. Regla de arrastre vigente.</p>
+        <p><strong>Victoria: </strong> Ganas el voto de una facción teniendo más cartas de ella en tu pila de Simpatizantes. Gana la partida quien consiga 3 votos.</p>
+    </div>
+
+    <!-- CLAIM 1 -->
+    <div id="base1">
+        <h2>👑 Claim (Juego Base 1)</h2>
+        
+        <div id="goblins" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)"> 
+				<div class="card-title">
+					<img src="icons/Goblins.png" alt="Goblins" class="icon"> 
+					<span>Goblins</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">14 Cartas (0-9 + cinco 0s)</span>
+                <p><strong>Poder: </strong> No tienen poderes especiales.</p>
+            </div>
+        </div>
+        <div id="caballeros" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)"> 
+				<div class="card-title">
+					<img src="icons/Caballeros.png" alt="Caballeros" class="icon"> 
+					<span>Caballeros</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">8 Cartas (2-9)</span>
+                <p><strong>Poder: </strong> Cuando juegas un Caballero después de un Goblin, el Caballero gana automáticamente al Goblin, independientemente de su valor. Debes seguir la regla de arrastre si puedes.</p>
+            </div>
+        </div>
+        <div id="enanos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Enanos.png" alt="Enanos" class="icon"> 
+					<span>Enanos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong> El perdedor de la baza coloca en su pila de Simpatizantes todas las cartas de Enano jugadas. El ganador se lleva las que no sean de Enano.</p>
+            </div>
+        </div>
+        <div id="no-muertos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/No-muertos.png" alt="No-muertos" class="icon"> 
+					<span>No Muertos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>			
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong> Las cartas jugadas de No-Muertos no se descartan. Se añaden a la pila de Simpatizantes del ganador de la baza. Si una carta de No-Muerto está en el centro y es ganada, va al mazo de Seguidores.</p>
+            </div>
+        </div>
+        <div id="doppelgangers" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Doppelgängers.png" alt="Doppelgängers" class="icon"> 
+					<span>Doppelgängers</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>			
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Facción comodín. Puedes jugarlo en vez de seguir a la facción líder, aunque tengas cartas de esa facción. Se considera de la misma facción que la carta jugada por el Líder, pero NO copia sus poderes.</p>
+            </div>
+        </div>		
+    </div>
+
+    <!-- CLAIM 2 -->
+    <div id="base2">
+        <h2>🗡️ Claim 2</h2>
+        <div id="gnomos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Gnomos.png" alt="Gnomos" class="icon"> 
+					<span>Gnomos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>			
+            <div class="card-content">
+                <span class="tag">13 Cartas (Impares 1-9)</span>
+                <p><strong>Poder (Fase 2): </strong> Se colocan boca arriba delante de ti, no en la pila de Simpatizantes. Al final de la partida, los que queden se mueven a la pila de Simpatizantes.</p>
+            </div>
+        </div>
+        <div id="gigantes" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Gigantes.png" alt="Gigantes" class="icon"> 
+					<span>Gigantes</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>			
+            <div class="card-content">
+                <span class="tag">9 Cartas (Impares 1-9)</span>
+                <p><strong>Poder (Fase 2): </strong> Si ganas la baza, cada Gigante jugado puede aplastar un Gnomo del oponente del mismo valor. El Gnomo aplastado se descarta y no puntúa.</p>
+            </div>
+        </div>
+        <div id="dragones" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Dragones.png" alt="Dragones" class="icon"> 
+					<span>Dragones</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>			
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> El último jugador en jugar un Dragón en una baza será el Líder de la siguiente baza, sin importar el valor o quién ganó la baza.</p>
+            </div>
+        </div>
+        <div id="trolls" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Trolls.png" alt="Trolls" class="icon"> 
+					<span>Trolls</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>			
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong> Solo se puede conseguir 1 Troll por baza. Si se juegan dos, el ganador se lleva el de mayor valor y el otro se aparta para el ganador de la siguiente baza.</p>
+            </div>
+        </div>
+        <div id="videntes" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Videntes.png" alt="Videntes" class="icon"> 
+					<span>Videntes</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong> Si ganas la baza con una Vidente, puedes mirar la carta superior del mazo y elegir entre tomar esa o la del centro de la mesa.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MERCENARIOS -->
+    <div id="mercenarios">
+        <h2>⚔️ Refuerzos: Mercenarios</h2>
+        <div id="cilopes" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Cíclopes.png" alt="Cíclopes" class="icon"> 
+					<span>Cíclopes</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Al final de la partida, el jugador con MENOS cartas de Cíclope gana el voto (debes tener al menos 1). En empate, gana el de menor valor en mesa.</p>
+            </div>
+        </div>
+        <div id="elfos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Elfos.png" alt="Elfos" class="icon"> 
+					<span>Elfos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">7 Cartas (1-7).</span>
+				<span class="faction-link"><img src="icons/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon-link" onclick="goToAnchor('elfos-orcos'); return false;"></span>
+                <p><strong>Poder: </strong> Sin poder especial</p>
+            </div>
+        </div>
+        <div id="orcos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Orcos.png" alt="Orcos" class="icon"> 
+					<span>Orcos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">7 Cartas (1-7)</span>
+				<span class="faction-link"><img src="icons/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon-link" onclick="goToAnchor('elfos-orcos'); return false;"></span>
+                <p><strong>Poder: </strong>Sin poder especial.</p>
+            </div>
+        </div>
+		<div id="elfos-orcos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Elfos-Orcos.png" alt="Elfos/Orcos" class="icon"> 
+					<span>Elfos/Orcos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div id="elfosorcos" class="card-content">
+                <span class="tag">8 Cartas (1-8)</span>
+                <p><strong>Poder: </strong>En la Fase 1 o 2, cuando juegas una carta de doble facción, debes anunciar si la juegas como Elfo o como Orco. <br>En la Fase 2, si ganas esta carta, cuenta como la facción que fue anunciada al jugarla. Puedes girar la carta para indicar de qué facción es.</p>
+            </div>
+        </div>		
+        <div class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)"> Héroes (18 Cartas) <span class="arrow">▼</span></div>
+            <div class="card-content">
+                <p>No cuentan como facción para la puntuación. Prevalecen sobre poderes de facciones.</p>
+                <p><strong>Ejemplos: </strong> Bardo (líder siguiente), Arquero (gana si líder juega 5-6), Muerdevidas (copia habilidades), Gárgola (cuenta como 2 cartas de facción), Hombre Lobo (cambia valor a 5 y facción), La Muerte (nadie gana simpatizantes), etc.</p>
+            </div>
+        </div>
+        <div class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)"> Héroes (18 Cartas) <span class="arrow">▼</span></div>
+            <div class="card-content">
+                <p>No cuentan como facción para la puntuación. Prevalecen sobre poderes de facciones.</p>
+                <p><strong>Ejemplos: </strong> Bardo (líder siguiente), Arquero (gana si líder juega 5-6), Muerdevidas (copia habilidades), Gárgola (cuenta como 2 cartas de facción), Hombre Lobo (cambia valor a 5 y facción), La Muerte (nadie gana simpatizantes), etc.</p>
+            </div>
+        </div>		
+    </div>
+
+    <!-- MAGIA -->
+    <div id="magia">
+        <h2>✨ Refuerzos: Magia</h2>
+        <div id="magos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Magos.png" alt="Magos" class="icon"> 
+					<span>Magos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9) + 10 Cartas de pociones</span>
+                <p><strong>Poder: </strong> Si ganas con un Mago, roba una carta de Poción (boca abajo). Durante otra baza puedes voltearla para alterar el valor de tu carta (suele subir, pero puede bajar).</p>
+            </div>
+        </div>
+        <div id="druidas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Druidas.png" alt="Druidas" class="icon"> 
+					<span>Druidas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+             <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong> Si pierdes tras jugar un Druida, se queda delante de ti girado 180º (se convierte en Oso). Tu siguiente carta jugada obtiene +3 a su valor.</p>
+            </div>
+        </div>
+        <div id="cambiaformas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Cambiaformas.png" alt="Cambiaformas" class="icon"> 
+					<span>Cambiaformas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong> Al jugarlo, se intercambia con la carta del centro de la mesa. Ahora competiréis por el Cambiaformas.</p>
+            </div>
+        </div>
+        <div class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)"> Artefactos (18 Cartas) <span class="arrow">▼</span></div>
+            <div class="card-content">
+                <p>Se reparten 3 al inicio. Se pueden usar en cualquier momento indicado. Prevalecen sobre todo lo demás.</p>
+                <p><strong>Ejemplos: </strong> Espada Serpiente (+3 valor), Bola Cristal (roba 3 elige 1 en Fase 1), Caballo Mago (intercambia carta jugada por mano), Botas Voladoras (+2 valor próximas 2 cartas), Anillo Nocturno (ignora obligación de seguir facción).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAPAS -->
+    <div id="mapas">
+        <h2>🗺️ Refuerzos: Mapas</h2>
+        <div id="basiliscos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Basiliscos.png" alt="Basiliscos" class="icon"> 
+					<span>Basiliscos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Si juegas esta carta después de una del mismo valor, colocas la carta del oponente en tu pila de Simpatizantes, ganas la baza y lideras la siguiente.</p>
+            </div>
+        </div>
+        <div id="fenix" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Fénix.png" alt="Fénix" class="icon"> 
+					<span>Fénix</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Fénix + 10 Fuegos</span>
+                <p><strong>Poder (Fase 2): </strong> Si pierdes jugando un Fénix, roba una carta de Fuego de Fénix a tu mano. Funciona exactamente como un Fénix normal.</p>
+            </div>
+        </div>
+        <div id="unicornios" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Unicornios.png" alt="Unicornios" class="icon"> 
+					<span>Unicornios</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong> Cada carta de Unicornio ganada aumenta el valor de las cartas de OTRA facción que juegues en +1 por Unicornio. No afecta a la puntuación final.</p>
+            </div>
+        </div>
+        <div class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)"> Lugares Mágicos (18 Cartas) <span class="arrow">▼</span></div>
+            <div class="card-content">
+                <p><strong>Edificios (Pergamino Azul): </strong> Cambian reglas de fin de partida. Ej: La Torre (suma valores en vez de contar cartas), El Monasterio (pierdes si tienes el doble de cartas).</p>
+                <p><strong>Escenarios (Pergamino Negro): </strong> Cambian interacciones. Ej: Inframundo (0 vale 10), Costa (perdedor de baza se lleva carta del centro).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TERROR -->
+    <div id="terror">
+        <h2>🧟 Refuerzos: Terror</h2>
+        <div id="vampiros" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Vampiros.png" alt="Vampiros" class="icon"> 
+					<span>Vampiros</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong> Se colocan boca arriba. Las cartas de otras facciones ganadas se ponen DEBAJO del Vampiro. Cuentan para el voto de Vampiros, no para su facción original. Al final se suman valores.</p>
+            </div>
+        </div>
+        <div id="zombis" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Zombis.png" alt="Zombis" class="icon"> 
+					<span>Zombis</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong> Si ganas la baza con un Zombi, la carta jugada por tu oponente va a tu pila de Simpatizantes.</p>
+            </div>
+        </div>
+        <div id="hombres-lobo" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Hombres-Lobo.png" alt="Hombres Lobo" class="icon"> 
+					<span>Hombres Lobo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Se usan 2 cartas de Luna (Llena/Sin luna). Si gana la baza el Hombre Lobo, se cambia la carta de Luna. Sin luna arriba: gana el de menor valor. Luna llena arriba: gana el de mayor valor.</p>
+            </div>
+        </div>
+        <div id="sombras" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Sombras.png" alt="Sombras" class="icon"> 
+					<span>Sombras</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 de 20 Cartas (0-19)</span>
+                <p><strong>Poder: </strong> Se barajan las 20 y se meten 10 al azar. Nadie sabe qué valores hay en juego durante la partida.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FUEGO -->
+    <div id="fuego">
+        <h2>🔥 Refuerzos: Fuego</h2>
+        <div id="demonios" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Demonios.png" alt="Demonios" class="icon"> 
+					<span>Demonios</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Al jugarla solo se sabe si es Par o Impar. Su valor real se comprueba al resolver la baza.</p>
+            </div>
+        </div>
+        <div id="elementales-de-fuego" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Elementales-de-Fuego.png" alt="Elementales de Fuego" class="icon"> 
+					<span>Elementales de Fuego</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Al jugarla solo se sabe si es Alta (5-9) o Baja (0-4). El valor se comprueba al resolver.</p>
+            </div>
+        </div>
+        <div id="picaros" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Pícaros.png" alt="Pícaros" class="icon"> 
+					<span>Pícaros</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (Impares 1-9)</span>
+                <p><strong>Poder: </strong> Hay 2 copias de cada valor. Una verdadera y una falsa (marcada con X). El engaño se comprueba al final de la partida, descartando las cartas con X.</p>
+            </div>
+        </div>
+        <div id="envenenadores" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Envenenadores.png" alt="Envenenadores" class="icon"> 
+					<span>Envenenadores</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Se ponen 3 cartas de Veneno boca arriba. Si ganas con un Envenenador puedes mirar una con el Filtro Revelador. Al final, se descartan de las pilas las cartas que coincidan con los valores de veneno revelados.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HIELO -->
+    <div id="hielo">
+        <h2>❄️ Refuerzos: Hielo</h2>
+        <div id="reyes-de-hielo" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Reyes-de-Hielo.png" alt="Reyes de Hielo" class="icon"> 
+					<span>Reyes de Hielo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">11 Cartas (0-10)</span>
+                <p><strong>Poder: </strong> Antes de determinar el voto de la facción: descarta de la pila de simpatizantes todas las parejas de Rey del hielo/Reina del hielo que tengan el mismo valor: ¡se casan y se escapan!.</p>
+            </div>
+        </div>
+        <div id="reinas-de-hielo" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Reinas-de-Hielo.png" alt="Reinas de Hielo" class="icon"> 
+					<span>Reinas de Hielo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">11 Reinas (0-10)</span>
+                <p><strong>Poder: </strong> Antes de determinar el voto de la facción: descarta de la pila de simpatizantes todas las parejas de Rey del hielo/Reina del hielo que tengan el mismo valor: ¡se casan y se escapan!.</p>
+            </div>
+        </div>		
+        <div id="yetis" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Yetis.png" alt="Yetis" class="icon"> 
+					<span>Yetis</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Incluso si ganas la baza con un Yeti, NO serás el Líder de la siguiente baza.</p>
+            </div>
+        </div>
+        <div id="bestias-del-hielo" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Bestias-del-Hielo.png" alt="Bestias de Hielo" class="icon"> 
+					<span>Bestias del Hielo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong> Si ganas la baza con esta carta, la otra carta jugada se descarta y no la colocas en tu pila de Simpatizantes.</p>
+            </div>
+        </div>
+        <div class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)"> Artefactos de Hielo <span class="arrow">▼</span></div>
+            <div class="card-content">
+                <p><strong>Ejemplos: </strong> Daga del Rey (roba carta de valor 5 del rival), Linterna Eterna (roba 3 cartas y mira mano rival), Espejo Mentiras (altera valor +/-5), Espada Hielo (congela cartas y suma valores a la siguiente baza).</p>
+            </div>
+        </div>
+    </div>
+	
+    <!-- CIELO -->
+    <div id="cielo">
+        <h2>⛅ Refuerzos: Cielo</h2>
+        <div id="angeles" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Ángeles.png" alt="Ángeles" class="icon"> 
+					<span>Ángeles</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">12 Cartas (0-11)</span>
+                <p><strong>Poder: </strong> Al final de la partida, si no hay otras cartas en tu pila de Simpatizantes con el mismo número que una determinada carta de Ángel, esa carta cuenta x2 para determinar el apoyo de la facción.</p>
+            </div>
+        </div>
+        <div id="agilas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Ágilas.png" alt="Ágilas" class="icon"> 
+					<span>Ágilas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">12 Cartas (0-11)</span>
+                <p><strong>Poder: </strong> Las Águilas no pueden liderar dos bazas consecutivas, a excepción de que el jugador únicamente tenga Águilas en la mano.</p>
+            </div>
+        </div>		
+        <div id="pterosaurios" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Pterosaurios.png" alt="Pterosaurios" class="icon"> 
+					<span>Pterosaurios</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">12 Cartas (0-11)</span>
+                <p><strong>Poder: </strong> Al final de la partida, ¡todas las cartas de Pterosaurio de valor ≥ 7 se extinguen! Dichas cartas no cuentan para la determinación de la mayoría en la facción.</p>
+            </div>
+        </div>
+        <div id="elementales-de-luz" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Elementales-de-Luz.png" alt="Elementales de Luz" class="icon"> 
+					<span>Elementales de Luz</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">12 Cartas (0-11)</span>
+                <p><strong>Poder (Fase 2): </strong> Fase 2: puedes descartar cualquier número de Elementales de Luz de tu pila de Simpatizantes para potenciar una carta jugada. Cada carta descartada potencia a la carta jugada en +1.</p>
+            </div>
+        </div>
+        <div id="buitres" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Buitres.png" alt="Buitres" class="icon"> 
+					<span>Buitres</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Al final de la partida, si ganas la mayoría en la facción de Buitres, baraja la pila de descarte de la Fase 1 y roba 2 cartas. Añade esas cartas a tus pilas de Simpatizantes correspondientes.</p>
+            </div>
+        </div>		
+    </div>
+	
+    <!-- SOL -->
+    <div id="sol">
+        <h2>☀️ Refuerzos: Sol</h2>
+        <div id="monjes-del-sol" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Monjes-de-Sol.png" alt="Monjes Solares" class="icon"> 
+					<span>Monjes Solares</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">11 Cartas (0-10)</span>
+                <p><strong>Poder: </strong> Cuando se juega un Monje del Sol, una regla especial del arrastre obliga al otro jugador a jugar un Monje de la Estrella. Si el otro jugador acompaña correctamente, el valor más alto de ambos gana la baza. Un Monje del Sol jugado tras otro Monje del Sol se consideran de facciones distintas, ganando la baza automáticamente el primer jugador.</p>
+            </div>
+        </div>
+        <div id="monjes-de-la-estrella" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Monjes-de-la-estrella.png" alt="Monjes Estelares" class="icon"> 
+					<span>Monjes Estelares</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">11 Cartas (0-10)</span>
+                <p><strong>Poder: </strong> Cuando se juega un Monje de la Estrella, una regla especial del arrastre obliga al otro jugador a jugar un Monje del Sol. Si el otro jugador acompaña correctamente, el valor más alto de ambos gana la baza. Un Monje de la Estrella jugado tras otro Monje de la Estrella se consideran de facciones distintas, ganando la baza automáticamente el primer jugador.</p>
+            </div>
+        </div>		
+        <div id="profetas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Profetas.png" alt="Profetas" class="icon"> 
+					<span>Profetas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Fase 2: el ganador del favor de los Profetas se determina en función del número de runas. Si hay al menos 3 runas combinadas en la pila de Simpatizantes de un jugador, el Profeta con el mayor valor gana. Si no hay menos de 3 runas, el Profeta con el menor valor gana la baza. <br><br>Las runas son iconos <img src="icons/Runa.png" alt="Runa" width="20"> en las cartas de Profeta.</p>
+            </div>
+        </div>
+        <div id="gusanos-de-arena" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Gusanos-de-arena.png" alt="Gusanos de arena" class="icon"> 
+					<span>Gusanos de arena</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong> Fases 1 y 2: cuando se juega una baza con un Gusano de Arena, se juega boca abajo. Cuando todos los jugadores han jugado carta, las cartas se revelan.</p>
+            </div>
+        </div>
+        <div id="escorpiones" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Escorpiones.png" alt="Escorpiones" class="icon"> 
+					<span>Escorpiones</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9) + 6 Cartas de picadura</span>
+                <p><strong>Poder: </strong> Fase 2: cuando añades un Escorpión a tu pila de Simpatizantes, debes tomar una carta de picadura. Las cartas de picadura te darán una penalización o un bonus especial para la siguiente baza que juegues. Después, se descartan. Si el mazo de picaduras se agota, baraja el descarte para formar un nuevo mazo.</p>
+            </div>
+        </div>		
+    </div>	
+	
+    <!-- AGUA -->
+    <div id="agua">
+        <h2>🌊 Refuerzos: Agua</h2>
+        <div id="piratas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Piratas.png" alt="Piratas" class="icon"> 
+					<span>Piratas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">11 Cartas (0-10)</span>
+                <p><strong>Poder: </strong> Al final de la partida, si un jugador tiene un Pirata y un Royal Navy del mismo valor, el Pirata es arrestado. Dicho Pirata cuenta como una carta de Royal Navy para determinar la mayoría de la facción (ya no cuenta como Pirata).</p>
+            </div>
+        </div>
+        <div id="royal-navy" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Royal-Navy.png" alt="Royal Navy" class="icon"> 
+					<span>Royal Navy</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">11 Cartas (0-10)</span>
+                <p><strong>Poder: </strong> Al final de la partida, si un jugador tiene un Pirata y un Royal Navy del mismo valor, el Pirata es arrestado. Dicho Pirata cuenta como una carta de Royal Navy para determinar la mayoría de la facción (ya no cuenta como Pirata).</p>
+            </div>
+        </div>		
+        <div id="monstruos-marinos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Monstruos-Marinos.png" alt="Monstruos Marinos" class="icon"> 
+					<span>Monstruos Marinos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong> Fase 1: si un Monstruo marino es revelado como carta central, los jugadores deben intercambiar una carta de su mano cada uno. Las cartas con el otro jugador se intercambian boca abajo.</p>
+            </div>
+        </div>
+        <div id="pulpos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Pulpos.png" alt="Pulpos" class="icon"> 
+					<span>Pulpos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong> Las cartas de valor ≥ 8 de cualquier otra facción ganan siempre a un Pulpo (tenga éste el valor que tenga).</p>
+            </div>
+        </div>
+        <div id="hombres-pez" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Hombres-pez.png" alt="Hombres Pez" class="icon"> 
+					<span>Hombres Pez</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9) + 6 Cartas de Tridente</span>
+                <p><strong>Poder: </strong> Fases 1 y 2: si pierdes una baza en la que jugaste un Hombre pez, toma una carta de tridente del mazo de robo o de otro jugador si el mazo de tridentes se ha agotado. El valor de todos los Hombres pez se incrementa en +1 por cada carta de tridente que poseas.</p>
+            </div>
+        </div>		
+    </div>	
+	
+	<!-- PROMO -->
+    <div id="promo">
+        <h2>🎖️ Promo</h2>
+        <div id="elfos-oscuros" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Elfos-Oscuros.png" alt="Elfos Oscuros" class="icon"> 
+					<span>Elfos Oscuros</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (1-7)</span>
+                <p><strong>Poder (Fase 2): </strong>Si ganas un Elfo oscuro en una baza, debes descartar y retirar del juego una carta de otra facción en tu pila de simpatizantes. Si solamente hay Elfos oscuros entre tus simpatizantes, no tienes que descartar ninguna carta. Si ganas más de un Elfo oscuro en una baza, sigues teniendo que descartar solo una carta de otra facción.</p>
+            </div>
+        </div>	
+        <div id="fantasmas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Fantasmas.png" alt="Fantasmas" class="icon"> 
+					<span>Fantasmas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong>Puedes añadir el Fantasma a tu pila de seguidores perdiendo la carta que normalmente adquirirías, tanto si pierdes como si ganas la baza. Si ganas y te quedas con el Fantasma, ponlo en tu pila de seguidores y descarta la carta boca arriba sobre la mesa. Si pierdes y eliges quedarte con el Fantasma, ponlo en tu pila de seguidores y descarta la primera carta del mazo boca abajo (sin mirarla).</p>
+            </div>
+        </div>	        
+        <div id="sirenas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Sirenas.png" alt="Sirenas" class="icon"> 
+					<span>Sirenas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong>Cuando obtienes una Sirena para tu pila de simpatizantes, colócala boca arriba. Tus siguientes cartas jugadas obtienen -1/por cada Sirena que haya.</p>
+            </div>
+        </div>	
+        <div id="minotauros" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Minotauros.png" alt="Minotauros" class="icon"> 
+					<span>Minotauros</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong>Si eres el líder y ganas la baza jugando un Minotauro, el otro jugador puede devolver la carta que jugó a su mano.</p>
+            </div>
+        </div>
+        <div id="manitas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Manitas.png" alt="Manitas" class="icon"> 
+					<span>Manitas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong>Si un Manitas gana a otra carta superando su valor en ≥ 4, ¡el Manitas explota! La otra carta se descarta del juego. El jugador que jugó al Manitas sigue considerándose el ganador de la baza.</p>
+            </div>
+        </div>  
+        <div id="valkirias" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Valkirias.png" alt="Valkirias" class="icon"> 
+					<span>Valkirias</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (3-12)</span>
+                <p><strong>Poder: </strong>Si una Valkiria se juega tras cualquier otra carta de facción y el valor de la Valkiria supera en ≥ 3 al valor de la primera carta, la Valkiria se convierte en una carta de esa otra facción a todos los efectos.</p>
+            </div>
+        </div>                    
+    </div>
+
+	<!-- BIG BOX -->
+    <div id="big-box">
+        <h2>🎁 Big Box</h2>
+        <div id="satiros" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Sátiros.png" alt="Sátiros" class="icon"> 
+					<span>Sátiros</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong>Si la carta por la que los jugadores compiten es un Sátiro, el segundo jugador no tiene que seguir la regla del arrastre. El valor más alto de las cartas jugadas gana la baza, independientemente de la facción que comenzó.</p>
+            </div>
+        </div>	        
+        <div id="resucitadores" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Resucitadores.png" alt="Resucitadores" class="icon"> 
+					<span>Resucitadores</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong>Tras la Fase 1, baraja las cartas descartadas para formar un mazo de cementerio. Si en la Fase 2 ganas una baza con un Resucitador, roba una carta del mazo de cementerio y añádela a tu pila de simpatizantes.</p>
+            </div>
+        </div>      
+    </div>   
+    
+	<!-- V ANIVERSARIO -->
+    <div id="vaniversario">
+        <h2>💍 V Aniversario</h2>
+        <div id="automatas" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Autómatas.png" alt="Autómatas" class="icon"> 
+					<span>Autómatas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong>Si ganas una baza con una carta de Autómata, ganas también la siguiente baza de forma automática.</p>
+            </div>
+        </div>	        
+        <div id="bardos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Bardos.png" alt="Bardos" class="icon"> 
+					<span>Bardos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong>El voto de los Bardos lo gana aquel jugador que tenga una mayor cantidad de Bardos de valores consecutivos. En caso de empate, gana el que tenga el Bardo de mayor valor dentro de esta serie.</p>
+            </div>
+        </div>    
+        <div id="mapaches" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Mapaches.png" alt="Mapaches" class="icon"> 
+					<span>Mapaches</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">14 Cartas (0-13)</span>
+                <p><strong>Poder: </strong>Cada Mapache con <img src="icons/Botín.png" alt="Runa" width="20"> (botín) aumenta en 1 el número de cartas de la facción con menos votos que tengas.</p>
+            </div>
+        </div>
+        <div id="grifos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Grifos.png" alt="Grifos" class="icon"> 
+					<span>Grifos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 2): </strong>Si un jugador con Grifos en su pila de Simpatizantes juega una carta con un valor igual a uno de ellos, su valor aumenta en +5.</p>
+            </div>
+        </div>
+        <div id="vikingos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Vikingos.png" alt="Vikingos" class="icon"> 
+					<span>Vikingos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong>Una carta de Vikingo cuenta como dos votos si hay otra carta de cualquier facción el mismo valor en la pila de Simpatizantes.</p>
+            </div>
+        </div>  
+        <div id="campesinos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Campesinos.png" alt="Campesinos" class="icon"> 
+					<span>Campesinos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">13 Cartas (0-12)</span>
+                <p><strong>Poder: </strong>Un Campesino abandona tu reino si no tienes una carta de Realeza del mismo valor o de hasta un máximo de 3 superior.</p>
+            </div>
+        </div>     
+        <div id="realeza" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Realeza.png" alt="Realeza" class="icon"> 
+					<span>Realeza</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">9 Cartas (4-12)</span>
+                <p><strong>Poder: </strong>Un Campesino abandona tu reino si no tienes una carta de Realeza del mismo valor o de hasta un máximo de 3 superior.</p>
+            </div>
+        </div>          
+        
+    </div>   
+    
+	<!-- ALIANZAS -->
+    <div id="alianzas">
+        <h2>🤝 Alianzas</h2>
+        <div id="ursidos" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Úrsidos.png" alt="Úrsidos" class="icon"> 
+					<span>Úrsidos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder (Fase 1): </strong>Si ganas una baza con un Úrsido, puedes colocar la siguiente carta revelada en la parte inferior del mazo y sacar una nueva carta.</p>
+            </div>
+        </div>	        
+        <div id="insectoides" class="card searchable">
+            <div class="card-header" onclick="toggleCard(this)">
+				<div class="card-title">
+					<img src="icons/Insectoides.png" alt="Insectoides" class="icon"> 
+					<span>Insectoides</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-content">
+                <span class="tag">10 Cartas (0-9)</span>
+                <p><strong>Poder: </strong>Al final de la partida, el Insectoide se arrastrará hasta el otro jugador si no tienes otra carta de Insectoide con un valor 1 o 2 puntos inferior o superior.</p>
+            </div>
+        </div>      
+    </div>     
+
+
+</div>
+
+<footer>
+    Guía no oficial creada a partir de los manuales oficiales de Claim.
+</footer>
+
+<script>
+    function toggleCard(element) {
+        const content = element.nextElementSibling;
+        const arrow = element.querySelector('.arrow');
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            arrow.classList.remove('active');
+        } else {
+            content.style.display = 'block';
+            arrow.classList.add('active');
+        }
+    }
+
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+	
+	function goToAnchor(id) {
+		const target = document.getElementById(id);
+		if (!target) return;
+
+		// Si el target es una card, abrirla
+		if (target.classList.contains('card')) {
+			const content = target.querySelector('.card-content');
+			const arrow = target.querySelector('.arrow');
+
+			if (content && content.style.display !== 'block') {
+				content.style.display = 'block';
+				arrow?.classList.add('active');
+			}
+		}
+
+		requestAnimationFrame(() => {
+			const headerHeight = document.querySelector('header').offsetHeight;
+
+			const y =
+				target.getBoundingClientRect().top +
+				window.scrollY -
+				headerHeight -
+				10;
+
+			window.scrollTo({
+				top: y,
+				behavior: 'smooth'
+			});
+		});
+	}
+
+    // Buscador
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function() {
+        const filter = searchInput.value.toLowerCase();
+        const cards = document.querySelectorAll('.searchable');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            if (text.includes(filter)) {
+                card.style.display = '';
+                // Auto-abrir si hay búsqueda
+                if(filter.length > 0) {
+                    const content = card.querySelector('.card-content');
+                    const arrow = card.querySelector('.arrow');
+                    content.style.display = 'block';
+                    arrow.classList.add('active');
+                }
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if(filter.length === 0) {
+            cards.forEach(card => {
+                const content = card.querySelector('.card-content');
+                const arrow = card.querySelector('.arrow');
+                content.style.display = 'none';
+                arrow.classList.remove('active');
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
