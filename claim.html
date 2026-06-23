@@ -7,7 +7,7 @@
     <style>
 		html {
 			scroll-behavior: smooth;
-			scroll-padding-top: 260px;
+			scroll-padding-top: 160px;
 		}
         :root {
             --primary: #2c3e50;
@@ -107,21 +107,24 @@
 			flex-shrink: 0;
 		}
 		.icon-link{
-			width: 25px;
-			height: auto;
+			height: 30px;
 			object-fit: contain;
 			align-items: center;
 			flex-shrink: 0;
 		}		
         .card-content {
             display: none;
+            flex-wrap: wrap;
             padding: 0 1rem 1rem 1rem;
             border-top: 1px solid #eee;
+            align-items: flex-start;
+        }
+        .card-content.open {
+            display: flex;
         }
         .card-content p { margin: 0.8rem 0 0 0; }
         .card-content strong { color: var(--primary); }
         .tag {
-            display: inline-block;
             background: #e8f5e9;
             color: #2e7d32;
             padding: 0.2rem 0.5rem;
@@ -131,14 +134,19 @@
             font-weight: bold;
         }
         .faction-link {
-            display: inline-block;
-            background: #ffe1ac;
-            color: #2e7d32;
+            margin-left: auto;
+            justify-content: flex-end;
+            background: #ebeae4;
+            color: #000000;
             padding: 0.2rem 0.5rem;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 0.8rem;
             margin-bottom: 0.5rem;
             font-weight: bold;
+        }
+        .card-content p {
+            width: 100%; /* ocupa una línea completa */
+            margin: 0.8rem 0 0 0;
         }		
         .rules-box {
             background: #fff3cd;
@@ -207,7 +215,8 @@
 				<span class="arrow">▼</span>
 			</div>
             <div class="card-content">
-                <span class="tag">14 Cartas (0-9 + cinco 0s)</span>
+                <span class="tag">14 Cartas (0-9)</span>
+                <span class="faction-link">🔗<img src="icons/Caballeros.png" alt="Caballeros" class="icon-link" onclick="goToAnchor('caballeros'); return false;"></span>
                 <p><strong>Poder: </strong> No tienen poderes especiales.</p>
             </div>
         </div>
@@ -221,6 +230,7 @@
 			</div>
             <div class="card-content">
                 <span class="tag">8 Cartas (2-9)</span>
+                <span class="faction-link">🔗<img src="icons/Goblins.png" alt="Goblins" class="icon-link" onclick="goToAnchor('goblins'); return false;"></span>                
                 <p><strong>Poder: </strong> Cuando juegas un Caballero después de un Goblin, el Caballero gana automáticamente al Goblin, independientemente de su valor. Debes seguir la regla de arrastre si puedes.</p>
             </div>
         </div>
@@ -1150,49 +1160,34 @@
     function toggleCard(element) {
         const content = element.nextElementSibling;
         const arrow = element.querySelector('.arrow');
-        if (content.style.display === 'block') {
-            content.style.display = 'none';
-            arrow.classList.remove('active');
-        } else {
-            content.style.display = 'block';
-            arrow.classList.add('active');
-        }
+
+        content.classList.toggle('open');
+        arrow.classList.toggle('active');
     }
 
     function scrollToSection(id) {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 	
-	function goToAnchor(id) {
-		const target = document.getElementById(id);
-		if (!target) return;
+    function goToAnchor(id) {
+        const target = document.getElementById(id);
+        if (!target) return;
 
-		// Si el target es una card, abrirla
-		if (target.classList.contains('card')) {
-			const content = target.querySelector('.card-content');
-			const arrow = target.querySelector('.arrow');
+        const content = target.querySelector('.card-content');
+        const arrow = target.querySelector('.arrow');
 
-			if (content && content.style.display !== 'block') {
-				content.style.display = 'block';
-				arrow?.classList.add('active');
-			}
-		}
+        if (content) {
+            content.classList.add('open');
+            arrow?.classList.add('active');
+        }
 
-		requestAnimationFrame(() => {
-			const headerHeight = document.querySelector('header').offsetHeight;
-
-			const y =
-				target.getBoundingClientRect().top +
-				window.scrollY -
-				headerHeight -
-				10;
-
-			window.scrollTo({
-				top: y,
-				behavior: 'smooth'
-			});
-		});
-	}
+        requestAnimationFrame(() => {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    }
 
     // Buscador
     const searchInput = document.getElementById('searchInput');
