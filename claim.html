@@ -194,8 +194,12 @@
 <!--    <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar facción o habilidad..."> -->
 
     <div class="nav-buttons">
-        <button class="nav-btn" onclick="scrollToSection('reglas')">Reglas Básicas</button>
-        <button class="nav-btn" onclick="scrollToSection('base1')">Claim 1</button>
+        <button class="nav-btn" onclick="scrollToSection('facciones')">Facciones</button>
+        <button class="nav-btn" onclick="scrollToSection('heroes')">Héroes</button>
+        <button class="nav-btn" onclick="scrollToSection('artefactos')">Artefactos</button>
+        <button class="nav-btn" onclick="scrollToSection('localizaciones')">Localizaciones</button>
+<!--    <button class="nav-btn" onclick="scrollToSection('reglas')">Reglas Básicas</button>
+        <button class="nav-btn" onclick="scrollToSection('base1')">Claim 1</button> 
         <button class="nav-btn" onclick="scrollToSection('base2')">Claim 2</button>
         <button class="nav-btn" onclick="scrollToSection('mercenarios')">Mercenarios</button>
         <button class="nav-btn" onclick="scrollToSection('magia')">Magia</button>
@@ -209,7 +213,8 @@
 		<button class="nav-btn" onclick="scrollToSection('promo')">Promo</button>
         <button class="nav-btn" onclick="scrollToSection('big-box')">Big Box</button>
         <button class="nav-btn" onclick="scrollToSection('vaniversario')">V Aniversario</button>
-        <button class="nav-btn" onclick="scrollToSection('alianzas')">Alianzas</button>
+        <button class="nav-btn" onclick="scrollToSection('alianzas')">Alianzas</button> 
+-->
     </div>
 
     <div id="reglas" class="rules-box">
@@ -219,9 +224,9 @@
         <p><strong>Victoria: </strong> Ganas el voto de una facción teniendo más cartas de ella en tu pila de Simpatizantes. Gana la partida quien consiga 3 votos.</p>
     </div>
 
-    <!-- CLAIM 1 -->
-    <div id="base1">
-        <h2>👑 Claim (Juego Base 1)</h2>
+    <!-- FACCIONES -->
+    <div id="facciones">
+        <h2>⚔️ Facciones</h2>
         
         <div id="goblins" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)"> 
@@ -295,11 +300,9 @@
                 <p><strong>Poder: </strong> Facción comodín. Puedes jugarlo en vez de seguir a la facción líder, aunque tengas cartas de esa facción. Se considera de la misma facción que la carta jugada por el Líder, pero NO copia sus poderes.</p>
             </div>
         </div>		
-    </div>
+    
 
-    <!-- CLAIM 2 -->
-    <div id="base2">
-        <h2>🗡️ Claim 2</h2>
+        <!-- CLAIM 2 -->
         <div id="gnomos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -372,11 +375,9 @@
                 <p><strong>Poder (Fase 1): </strong> Si ganas la baza con una Vidente, puedes mirar la carta superior del mazo y elegir entre tomar esa o la del centro de la mesa.</p>
             </div>
         </div>
-    </div>
+    
 
-    <!-- MERCENARIOS -->
-    <div id="mercenarios">
-        <h2>⚔️ Refuerzos: Mercenarios</h2>
+        <!-- MERCENARIOS -->
         <div id="cilopes" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -442,11 +443,8 @@
                 <p><strong>Ejemplos: </strong> Bardo (líder siguiente), Arquero (gana si líder juega 5-6), Muerdevidas (copia habilidades), Gárgola (cuenta como 2 cartas de facción), Hombre Lobo (cambia valor a 5 y facción), La Muerte (nadie gana simpatizantes), etc.</p>
             </div> 
         </div>
-    </div>
 
-    <!-- MAGIA -->
-    <div id="magia">
-        <h2>✨ Refuerzos: Magia</h2>
+        <!-- MAGIA -->
         <div id="magos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -496,11 +494,9 @@
                 <p><strong>Ejemplos: </strong> Espada Serpiente (+3 valor), Bola Cristal (roba 3 elige 1 en Fase 1), Caballo Mago (intercambia carta jugada por mano), Botas Voladoras (+2 valor próximas 2 cartas), Anillo Nocturno (ignora obligación de seguir facción).</p>
             </div>
         </div>
-    </div>
+    
 
-    <!-- MAPAS -->
-    <div id="mapas">
-        <h2>🗺️ Refuerzos: Mapas</h2>
+        <!-- MAPAS -->
         <div id="basiliscos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -550,11 +546,9 @@
                 <p><strong>Escenarios (Pergamino Negro): </strong> Cambian interacciones. Ej: Inframundo (0 vale 10), Costa (perdedor de baza se lleva carta del centro).</p>
             </div>
         </div>
-    </div>
+    
 
-    <!-- TERROR -->
-    <div id="terror">
-        <h2>🧟 Refuerzos: Terror</h2>
+        <!-- TERROR -->
         <div id="vampiros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -611,11 +605,9 @@
                 <p><strong>Poder: </strong> Se barajan las 20 y se meten 10 al azar. Nadie sabe qué valores hay en juego durante la partida.</p>
             </div>
         </div>
-    </div>
+    
 
-    <!-- FUEGO -->
-    <div id="fuego">
-        <h2>🔥 Refuerzos: Fuego</h2>
+        <!-- FUEGO -->
         <div id="demonios" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -672,11 +664,9 @@
                 <p><strong>Poder: </strong> Se ponen 3 cartas de Veneno boca arriba. Si ganas con un Envenenador puedes mirar una con el Filtro Revelador. Al final, se descartan de las pilas las cartas que coincidan con los valores de veneno revelados.</p>
             </div>
         </div>
-    </div>
 
-    <!-- HIELO -->
-    <div id="hielo">
-        <h2>❄️ Refuerzos: Hielo</h2>
+
+        <!-- HIELO -->
         <div id="reyes-de-hielo" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -741,11 +731,9 @@
                 <p><strong>Ejemplos: </strong> Daga del Rey (roba carta de valor 5 del rival), Linterna Eterna (roba 3 cartas y mira mano rival), Espejo Mentiras (altera valor +/-5), Espada Hielo (congela cartas y suma valores a la siguiente baza).</p>
             </div>
         </div>
-    </div>
+
 	
-    <!-- CIELO -->
-    <div id="cielo">
-        <h2>⛅ Refuerzos: Cielo</h2>
+        <!-- CIELO -->
         <div id="angeles" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -818,11 +806,8 @@
                 <p><strong>Poder: </strong> Al final de la partida, si ganas la mayoría en la facción de Buitres, baraja la pila de descarte de la Fase 1 y roba 2 cartas. Añade esas cartas a tus pilas de Simpatizantes correspondientes.</p>
             </div>
         </div>		
-    </div>
 	
-    <!-- SOL -->
-    <div id="sol">
-        <h2>☀️ Refuerzos: Sol</h2>
+        <!-- SOL -->
         <div id="monjes-del-sol" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -895,11 +880,8 @@
                 <p><strong>Poder (Fase 2): </strong>Cuando añades un Escorpión a tu pila de Simpatizantes, debes tomar una carta de picadura. Las cartas de picadura te darán una penalización o un bonus especial para la siguiente baza que juegues. Después, se descartan. Si el mazo de picaduras se agota, baraja el descarte para formar un nuevo mazo.</p>
             </div>
         </div>		
-    </div>	
 	
-    <!-- AGUA -->
-    <div id="agua">
-        <h2>🌊 Refuerzos: Agua</h2>
+        <!-- AGUA -->
         <div id="piratas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -972,11 +954,8 @@
                 <p><strong>Poder (Fases 1 y 2): </strong>Si pierdes una baza en la que jugaste un Hombre pez, toma una carta de tridente del mazo de robo o de otro jugador si el mazo de tridentes se ha agotado. El valor de todos los Hombres pez se incrementa en +1 por cada carta de tridente que poseas.</p>
             </div>
         </div>		
-    </div>	
 	
-	<!-- PROMO -->
-    <div id="promo">
-        <h2>🎖️ Promo</h2>
+    	<!-- PROMO -->
         <div id="elfos-oscuros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -1061,11 +1040,8 @@
                 <p><strong>Poder: </strong>Si una Valkiria se juega tras cualquier otra carta de facción y el valor de la Valkiria supera en ≥ 3 al valor de la primera carta, la Valkiria se convierte en una carta de esa otra facción a todos los efectos.</p>
             </div>
         </div>                    
-    </div>
 
-	<!-- BIG BOX -->
-    <div id="big-box">
-        <h2>🎁 Big Box</h2>
+    	<!-- BIG BOX -->
         <div id="satiros" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -1094,11 +1070,8 @@
                 <p><strong>Poder: </strong>Tras la Fase 1, baraja las cartas descartadas para formar un mazo de cementerio. Si en la Fase 2 ganas una baza con un Resucitador, roba una carta del mazo de cementerio y añádela a tu pila de simpatizantes.</p>
             </div>
         </div>      
-    </div>   
     
-	<!-- V ANIVERSARIO -->
-    <div id="vaniversario">
-        <h2>💍 V Aniversario</h2>
+    	<!-- V ANIVERSARIO -->
         <div id="automatas" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -1180,6 +1153,7 @@
             <div class="card-content">
                 <span class="box">V Aniversario</span>
                 <span class="tag">13 Cartas (0-12)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Realeza.png" alt="Realeza" class="icon-link" onclick="goToAnchor('realeza'); return false;"></span>                                
                 <p><strong>Poder: </strong>Un Campesino abandona tu reino si no tienes una carta de Realeza del mismo valor o de hasta un máximo de 3 superior.</p>
             </div>
         </div>     
@@ -1194,15 +1168,12 @@
             <div class="card-content">
                 <span class="box">V Aniversario</span>
                 <span class="tag">9 Cartas (4-12)</span>
+                <span class="faction-link">🔗<img src="icons/factions/Campesinos.png" alt="Campesinos" class="icon-link" onclick="goToAnchor('campesinos'); return false;"></span>                                                
                 <p><strong>Poder: </strong>Un Campesino abandona tu reino si no tienes una carta de Realeza del mismo valor o de hasta un máximo de 3 superior.</p>
             </div>
         </div>          
-        
-    </div>   
     
-	<!-- ALIANZAS -->
-    <div id="alianzas">
-        <h2>🤝 Alianzas</h2>
+    	<!-- ALIANZAS -->
         <div id="ursidos" class="card searchable">
             <div class="card-header" onclick="toggleCard(this)">
 				<div class="card-title">
@@ -1231,7 +1202,26 @@
                 <p><strong>Poder: </strong>Al final de la partida, el Insectoide se arrastrará hasta el otro jugador si no tienes otra carta de Insectoide con un valor 1 o 2 puntos inferior o superior.</p>
             </div>
         </div>      
-    </div>     
+    </div>   
+    
+    <!-- HEROES -->
+    <div id="heroes">
+        <h2>🧙   Héroes</h2>
+
+    </div>
+
+    <!-- ARTEFACTOS -->
+    <div id="artefactos">
+        <h2>💎 Artefactos</h2>
+
+    </div>
+
+    <!-- LOCALIZACIONES -->
+    <div id="localizaciones">
+        <h2>🗺️ Localizaciones</h2>
+
+    </div>    
+
 </div>
 
 <footer>
