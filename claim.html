@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía de Referencia: Claim!</title>
     <style>
+        @font-face {
+            font-family: 'doubleBass';
+            src: url('fonts/DoubleBass-Bold-trial.ttf') format('ttf');
+        }
 		html {
 			scroll-behavior: smooth;
 			scroll-padding-top: 160px;
@@ -12,8 +16,10 @@
         :root {
             --primary: #2c3e50;
             --accent: #8e44ad;
+            --accent-hero: #44ad6c;
             --bg: #ecf0f1;
             --card-bg: #ffffff;
+            --card-hero-bg: #ffffff;
             --text: #34495e;
         }
         body {
@@ -76,18 +82,41 @@
             border-left: 5px solid var(--accent);
         }
         .card-header {
+            font-family: 'doubleBass', sans-serif;
+            font-size: 2rem;
+            font-weight: bolder;
             padding: 1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
-            font-weight: bold;
-            font-size: 1.1rem;
         }
 		.card-title {
 			display: flex;
 			align-items: center;
 			gap: 12px;
 		}
+        .card-hero {
+            background-color: var(--card-hero-bg);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border-left: 5px solid var(--accent-hero);
+        }
+        .card-hero-header {
+            font-family: 'doubleBass', sans-serif;
+            font-size: 2rem;
+            font-weight: bolder;            
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+		.card-hero-title {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}        
         .card-header:hover { background-color: #f8f9fa; }
         .arrow { 
 			margin-left: auto;
@@ -100,6 +129,12 @@
 			object-fit: contain;
 			flex-shrink: 0;
 		}
+        .icon-hero {
+			width: 50px;
+			height: 50px;
+			object-fit: contain;
+			flex-shrink: 0;
+		}        
 		.icon-text {
 			width: auto;
 			height: auto;
@@ -123,7 +158,19 @@
             display: flex;
         }
         .card-content p { margin: 0.8rem 0 0 0; }
-        .card-content strong { color: var(--primary); }
+        .card-content strong { color: var(--primary); }      
+        .card-hero-content p { margin: 0.8rem 0 0 0; }
+        .card-hero-content strong { color: var(--primary); }
+        .card-hero-content {
+            display: none;
+            flex-wrap: wrap;
+            padding: 0 1rem 1rem 1rem;
+            border-top: 1px solid #eee;
+            align-items: flex-start;
+        }
+        .card-hero-content.open {
+            display: flex;
+        }          
         .tag {
             background: #e8f5e9;
             color: #2e7d32;
@@ -1206,13 +1253,327 @@
     
     <!-- HEROES -->
     <div id="heroes">
-        <h2>🧙   Héroes</h2>
+        <h2>🧙 Héroes</h2>
+
+        <div id="bardo-cantarin" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Bardo-Cantarín.png" alt="Bardo Cantarín" class="icon-hero"> 
+					<span>Bardo Cantarín</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>En la siguiente baza serás el líder.</p>
+            </div>
+        </div>
+        <div id="arquero-centauro" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Arquero-Centauro.png" alt="Arquero Centauro" class="icon-hero"> 
+					<span>Arquero Centauro</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si la carta jugada por el Líder es de valor 5 o 6, ganas la baza.</p>
+            </div>
+        </div>  
+        <div id="señor-de-los-insectos" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Señor-de-los-Insectos.png" alt="Señor de los insectos" class="icon-hero"> 
+					<span>Señor de los insectos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si juegas esta carta en la Fase 2, aumenta su valor en +1 por cada Simpatizante que hayas conseguido previamente.</p>
+            </div>
+        </div>              
+        <div id="bufon" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Bufón.png" alt="Bufón" class="icon-hero"> 
+					<span>Bufón</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si juegas esta carta después de la de Líder, intercambiáis las cartas. La baza se resuelve con el resultado de las cartas nuevas.</p>
+            </div>
+        </div>
+        <div id="sirena" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Sirena.png" alt="Sirena" class="icon-hero"> 
+					<span>Sirena</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si eres el Líder y pierdes al jugar esta carta, toma una carta de la pila de Simpatizantes de tu oponente.</p>
+            </div>
+        </div>    
+        <div id="bruja" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Bruja.png" alt="Bruja" class="icon-hero"> 
+					<span>Bruja</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si juegas esta carta siendo el Líder, solo puedes perder contra un número par mayor que 5.</p>
+            </div>
+        </div>   
+        <div id="minotauro" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Minotauro.png" alt="Minotauro" class="icon-hero"> 
+					<span>Mionotauro</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si esta es la última carta que juegas en la Fase 1 o 2, ganas automáticamente la baza.</p>
+            </div>
+        </div>     
+        <div id="golem-de-piedra" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Golem-de-Piedra.png" alt="Golem de Piedra" class="icon-hero"> 
+					<span>Golem de Piedra</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si el Líder juega una carta de valor entre 1-4, su carta es descartada y ganas la baza.</p>
+            </div>
+        </div>  
+        <div id="nigromante" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Nigromante.png" alt="Nigromante" class="icon-hero"> 
+					<span>Nigromante</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Puedes intercambiar esta carta de tu mano con una que esté a punto de ser descartada (Fase 1).</p>
+            </div>
+        </div>                          
+        <div id="ladron-de-vida" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Ladrón-de-Vida.png" alt="Ladrón de Vida" class="icon-hero"> 
+					<span>Ladrón de Vida</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si juegas esta carta después de otra facción, copia las habilidades de esa facción como si perteneciese a ella. No cuenta como esa facción en la puntuación final.</p>
+            </div>
+        </div>
+        <div id="gargola" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Gárgola.png" alt="Gárgola" class="icon-hero"> 
+					<span>Gárgola</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si consigues esta carta en la Fase 2, cuenta como dos cartas de cualquier otra facción.</p>
+            </div>
+        </div>  
+        <div id="hombre-lobo" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Hombre-Lobo.png" alt="Hombre Lobo" class="icon-hero"> 
+					<span>Hombre Lobo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Cuando la juegues, puedes cambiar el valor de esta carta a 5 y que cuente como otra facción (no copia sus habilidades).</p>
+            </div>
+        </div>
+        <div id="dinosaurio" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Dinosaurio.png" alt="Dinosaurio" class="icon-hero"> 
+					<span>Dinosaurio</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>En la Fase 2, puedes devolver esta carta a la mano si pierdes la baza.</p>
+            </div>
+        </div>
+        <div id="reina-vampira" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Reina-Vampira.png" alt="Reina Vampira" class="icon-hero"> 
+					<span>Reina Vampira</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Todas las cartas jugadas contra esta carta pierden sus poderes especiales.</p>
+            </div>
+        </div>
+        <div id="ent" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Ent.png" alt="Ent" class="icon-hero"> 
+					<span>Ent</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si juegas esta carta en la Fase 2, puedes convertirla en una facción de la que tengas al menos dos cartas en tu pila de Simpatizantes.</p>
+            </div>
+        </div>
+        <div id="kraken" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Kraken.png" alt="Kraken" class="icon-hero"> 
+					<span>Kraken</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si ganas la baza con esta carta en la Fase 2, toma una carta aleatoria de la mano de tu oponente. Luego, dale una carta de tu mano a tu elección (no puede ser la que le has robado).</p>
+            </div>
+        </div>
+        <div id="la-muerte" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_La-Muerte.png" alt="La Muerte" class="icon-hero"> 
+					<span>La Muerte</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>Si juegas esta carta en la Fase 2, el ganador no se lleva Simpatizantes. Las cartas se descartan. El jugador que hubiese ganado la baza es el Líder en la siguiente.</p>
+            </div>
+        </div>
+        <div id="guerrero-invencible" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Guerrero-Invencible.png" alt="Guerrero Invencible" class="icon-hero"> 
+					<span>Guerrero Invencible</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Mercenarios</span>
+                <p><strong>Poder: </strong>No tiene poderes especiales, pero tiene un valor alto.</p>
+            </div>
+        </div>
+        <div id="rey-liche" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Rey-Liche.png" alt="Rey Liche" class="icon-hero"> 
+					<span>Rey Liche</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Terror</span>
+                <p><strong>Poder: </strong>El valor de la carta jugada después del Rey Liche disminuye en -3.</p>
+            </div>
+        </div>  
+        <div id="esqueleto" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Esqueleto.png" alt="Esqueleto" class="icon-hero"> 
+					<span>Esqueleto</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Terror</span>
+                <p><strong>Poder: </strong>Si ganas una baza con el Esqueleto, puedes tomar una carta aleatoria de la pila de descarte y llevarla a tu mano.</p>
+            </div>
+        </div> 
+        <div id="brujo" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Brujo.png" alt="Brujo" class="icon-hero"> 
+					<span>Brujo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Terror</span>
+                <p><strong>Poder: </strong>Si juegas el Brujo después de una carta con un valor impar, ganas la baza.</p>
+            </div>
+        </div>
+        <div id="cthulhu" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Cthulhu.png" alt="Cthulhu" class="icon-hero"> 
+					<span>Cthulhu</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Terror</span>
+                <p><strong>Poder: </strong>Si juegas a Cthulhu en la Fase 1, devuelve a la caja las dos primeras cartas del mazo central. Si lo juegas en la Fase 2, ambos jugadores deben descartar 1 carta de su mano, a su elección.</p>
+            </div>
+        </div> 
+        <div id="momia" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Momia.png" alt="Momia" class="icon-hero"> 
+					<span>Momia</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Terror</span>
+                <p><strong>Poder: </strong>Si juegas la Momia después de una carta con valor 7 o superior, ganas la baza.</p>
+            </div>
+        </div>
+        <div id="cubo-gelatinoso" class="card-hero searchable">
+            <div class="card-hero-header" onclick="toggleCard(this)">
+				<div class="card-hero-title">
+					<img src="icons/heroes/heroes_Cubo-Gelatinoso.png" alt="Cubo Gelatinoso" class="icon-hero"> 
+					<span>Cubo Gelatinoso</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-hero-content">
+                <span class="box">Refuerzos: Terror</span>
+                <p><strong>Poder: </strong>En la Fase 2: Si el Cubo Gelatinoso es la segunda carta jugada en una baza, coloca la carta del líder debajo de ella. El ganador de la siguiente baza consigue también el Cubo Gelatinoso y la carta que se encuentra
+debajo.</p>
+            </div>
+        </div>                                                                                       
 
     </div>
 
     <!-- ARTEFACTOS -->
     <div id="artefactos">
-        <h2>💎 Artefactos</h2>
+        <h2>💎Artefactos</h2>
 
     </div>
 
