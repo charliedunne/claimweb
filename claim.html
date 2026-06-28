@@ -21,9 +21,11 @@
             --primary: #2c3e50;
             --accent: #8e44ad;
             --accent-hero: #44ad6c;
+            --accent-artifact: #ff006a;
             --bg: #ecf0f1;
             --card-bg: #ffffff;
             --card-hero-bg: #ffffff;
+            --card-artifact-bg: #ffffff;
             --text: #34495e;
         }
         body {
@@ -120,7 +122,29 @@
 			display: flex;
 			align-items: center;
 			gap: 12px;
-		}        
+		}
+       .card-artifact {
+            background-color: var(--card-artifact-bg);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border-left: 5px solid var(--accent-artifact);
+        }
+        .card-artifact-header {
+            font-family: 'doubleBass';
+            font-size: 2rem;
+            font-weight: bolder;            
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+		.card-artifact-title {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}                        
         .card-header:hover { background-color: #f8f9fa; }
         .arrow { 
 			margin-left: auto;
@@ -138,7 +162,13 @@
 			height: 50px;
 			object-fit: contain;
 			flex-shrink: 0;
-		}        
+		}    
+        .icon-artifact {
+			width: 50px;
+			height: 50px;
+			object-fit: contain;
+			flex-shrink: 0;
+		}             
 		.icon-text {
 			width: auto;
 			height: auto;
@@ -175,7 +205,19 @@
         }
         .card-hero-content.open {
             display: flex;
-        }          
+        }
+        .card-artifact-content p { margin: 0.8rem 0 0 0; }
+        .card-artifact-content strong { color: var(--primary); }
+        .card-artifact-content {
+            display: none;
+            flex-wrap: wrap;
+            padding: 0 1rem 1rem 1rem;
+            border-top: 1px solid #eee;
+            align-items: flex-start;
+        }
+        .card-artifact-content.open {
+            display: flex;
+        }                            
         .tag {
             background: #e8f5e9;
             color: #2e7d32;
@@ -250,23 +292,6 @@
         <button class="nav-btn" onclick="scrollToSection('heroes')">Héroes</button>
         <button class="nav-btn" onclick="scrollToSection('artefactos')">Artefactos</button>
         <button class="nav-btn" onclick="scrollToSection('localizaciones')">Localizaciones</button>
-<!--    <button class="nav-btn" onclick="scrollToSection('reglas')">Reglas Básicas</button>
-        <button class="nav-btn" onclick="scrollToSection('base1')">Claim 1</button> 
-        <button class="nav-btn" onclick="scrollToSection('base2')">Claim 2</button>
-        <button class="nav-btn" onclick="scrollToSection('mercenarios')">Mercenarios</button>
-        <button class="nav-btn" onclick="scrollToSection('magia')">Magia</button>
-        <button class="nav-btn" onclick="scrollToSection('mapas')">Mapas</button>
-        <button class="nav-btn" onclick="scrollToSection('terror')">Terror</button>
-        <button class="nav-btn" onclick="scrollToSection('fuego')">Fuego</button>
-        <button class="nav-btn" onclick="scrollToSection('hielo')">Hielo</button>
-		<button class="nav-btn" onclick="scrollToSection('cielo')">Cielo</button>
-		<button class="nav-btn" onclick="scrollToSection('agua')">Agua</button>
-		<button class="nav-btn" onclick="scrollToSection('sol')">Sol</button>
-		<button class="nav-btn" onclick="scrollToSection('promo')">Promo</button>
-        <button class="nav-btn" onclick="scrollToSection('big-box')">Big Box</button>
-        <button class="nav-btn" onclick="scrollToSection('vaniversario')">V Aniversario</button>
-        <button class="nav-btn" onclick="scrollToSection('alianzas')">Alianzas</button> 
--->
     </div>
 
     <div id="reglas" class="rules-box">
@@ -1258,7 +1283,17 @@
     
     <!-- HEROES -->
     <div id="heroes">
-        <h2>🧙 Héroes</h2>
+        <h2>🧙 Héroes</h2>        
+
+         <div id="reglas" class="rules-box">
+            <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Héroes</h2>
+            <p>Al comienzo de la partida, baraja el mazo de cartas de Héroe y <strong>separa 5</strong> boca abajo. Luego, baraja como siempre el mazo central y retira 5 cartas de la parte superior sin mirar. Añade las 5 cartas de Héroe al mazo central y barájalo. Coloca el mazo en el centro de la mesa y reparte 13 cartas a cada jugador.
+            <p>Ahora, además de las facciones habituales, hay algunas cartas de Héroe en el mazo. Se juegan y utilizan como cartas normales, pero cada una tiene su propia habilidad única. Al jugarlas, se tienen en cuenta las siguientes reglas:
+                    <ul><li>Si el Héroe es la primera carta jugada, el jugador contrario puede jugar cualquier facción. No hay una facción “líder” para esta baza. Los valores (y cualquier habilidad especial) determinarán al ganador.</li>
+                    <li>Si el Héroe es la segunda carta jugada, se considera que pertenece a otra facción. Por lo tanto, la facción líder del oponente sigue teniendo ventaja.</li></ul></p>
+                Cuando consigues Héroes en la <strong>Fase 2</strong>, no cuentan como una facción específica y no cuentan para la puntuación final de partida (a menos que se indique lo contrario). Los Héroes prevalecen sobre los poderes de las Facciones y Lugares Mágicos, si hubiera conflicto, pero los artefactos prevalecen sobre todos.</p>
+        </div>
+
 
         <div id="bardo-cantarin" class="card-hero searchable">
             <div class="card-hero-header" onclick="toggleCard(this)">
@@ -1569,8 +1604,7 @@
 			</div>
             <div class="card-hero-content">
                 <span class="box">Refuerzos: Terror</span>
-                <p><strong>Poder: </strong>En la Fase 2: Si el Cubo Gelatinoso es la segunda carta jugada en una baza, coloca la carta del líder debajo de ella. El ganador de la siguiente baza consigue también el Cubo Gelatinoso y la carta que se encuentra
-debajo.</p>
+                <p><strong>Poder: </strong>En la Fase 2: Si el Cubo Gelatinoso es la segunda carta jugada en una baza, coloca la carta del líder debajo de ella. El ganador de la siguiente baza consigue también el Cubo Gelatinoso y la carta que se encuentra debajo.</p>
             </div>
         </div>                                                                                       
 
@@ -1579,6 +1613,455 @@ debajo.</p>
     <!-- ARTEFACTOS -->
     <div id="artefactos">
         <h2>💎Artefactos</h2>
+
+         <div id="reglas" class="rules-box">
+            <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Artefactos</h2>
+            <p>Al comienzo de la partida, baraja el mazo de cartas de Artefacto. Reparte 3 cartas de Artefacto a cada jugador, boca abajo.<br>Devuelve las demás a la caja, ya que no se usarán en esta partida. Durante la partida, los jugadores pueden jugar sus cartas de Artefacto. Las reglas indican cuándo y cómo se pueden jugar. Cada una de estas cartas tendrá un poder especial asociado, y si las juegas con astucia ¡pueden proporcionarte una buena ventaja! Las cartas de Artefacto no van a tu mano.<br>Un jugador puede utilizar un Artefacto en cualquier momento. Una vez jugado, se descarta. Los poderes de los Artefactos prevalecen sobre los poderes de los Héroes, Facciones y Lugares Mágicos, si hubiera conflicto.</p>
+        </div>        
+
+        <div id="corona-de-la-luz" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Corona-de-la-Luz.png" alt="Corona de la Luz" class="icon-artifact"> 
+					<span>Corona de la Luz</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto al final de la partida. Añádelo a cualquiera de tus facciones. Cuenta como una
+carta de valor 5 de esa facción.</p>
+            </div>
+        </div>   
+        <div id="espada-de-la-serpiente" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Espada-de-la-Serpiente.png" alt="Espada de la Serpiente" class="icon-artifact"> 
+					<span>Espada de la Serpiente</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto cuando juegues una carta de tu mano. El valor de esa carta aumenta en +3.</p>
+            </div>
+        </div> 
+        <div id="cuerno-del-silencio" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Cuerno-del-Silencio.png" alt="Cuerno del Silencio" class="icon-artifact"> 
+					<span>Cuerno del Silencio</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto en la Fase 2, después de que cada jugador haya jugado una carta. Cada jugador toma inmediatamente la carta que ha jugado y la coloca en su pila de Simpatizantes, independientemente del resultado de la baza. El jugador que hubiese ganado la baza será el Líder de la siguiente baza.</p>
+            </div>
+        </div>   
+        <div id="lanza-de-la-venganza" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Lanza-de-la-Venganza.png" alt="Lanza de la Venganza" class="icon-artifact"> 
+					<span>Lanza de la Venganza</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto al perder una baza en la Fase 2. Descarta una de las cartas jugadas antes de que el ganador se lleve los Simpatizantes.</p>
+            </div>
+        </div>      
+        <div id="bola-de-cristal" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Bola-de-Cristal.png" alt="Bola de Cristal" class="icon-artifact"> 
+					<span>Bola de Cristal</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto en la Fase 1, cuando vayas a robar una carta de la parte superior del mazo (al perder la baza). En vez de eso, roba 3 cartas y elige 1. Devuelve el resto al mazo y barájalo.</p>
+            </div>
+        </div>      
+        <div id="cristal-de-los-ilusos" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Cristal-de-los-Ilusos.png" alt="Cristal de los Ilusos" class="icon-artifact"> 
+					<span>Cristal de los Ilusos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto en la Fase 2, en el momento de colocar las cartas en tu pila de Simpatizantes (al ganar la baza). Intercambia una de las cartas que fueses a colocar con una de tu mano.</p>
+            </div>
+        </div>      
+        <div id="caballo-del-mago" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Caballo-del-Mago.png" alt="Caballo del Mago" class="icon-artifact"> 
+					<span>Caballo del Mago</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto después de que cada jugador haya jugado una carta. Intercambia la carta que has jugado con una de tu mano. Luego, la baza se resuelve como de costumbre.</p>
+            </div>
+        </div>      
+        <div id="botas-voladoras" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Botas-Voladoras.png" alt="Botas Voladoras" class="icon-artifact"> 
+					<span>Botas Voladoras</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto en cualquier momento. El valor de las siguientes dos cartas que juegues aumenta en +2.</p>
+            </div>
+        </div>      
+        <div id="piedra-runica-olvidada" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_PIedra-Rúnica-Olvidada.png" alt="Piedra Rúnica Olvidada" class="icon-artifact"> 
+					<span>Piedra Rúnica Olvidada</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto en la Fase 2, en el momento de colocar las cartas en tu pila de Simpatizantes (al ganar la baza). Descarta una de esas cartas y coloca este artefacto debajo de una carta de Simpatizante que hayas conseguido previamente. La Piedra Rúnica Olvidada cuenta como una carta adicional de esa facción.</p>
+            </div>
+        </div>      
+        <div id="linterna-eterna" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Linterna.png" alt="Linterna Eterna" class="icon-artifact"> 
+					<span>Linterna Eterna</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto después de ganar una baza en la Fase 2. Roba 3 cartas de la mano de tu oponente, míralas y devuélveselas. Tu oponente debe tener al menos 5 cartas en su mano para que puedas jugar este artefacto.</p>
+            </div>
+        </div>      
+        <div id="baston-del-orden" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Bastón-de-la-Orden.png" alt="Bastón del Orden" class="icon-artifact"> 
+					<span>Bastón del Orden</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto después de haber perdido una baza. Serás el Líder en la siguiente baza.</p>
+            </div>
+        </div>      
+        <div id="collar-de-escarcha" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Collar-de-Escarcha.png" alt="Collar de Escarcha" class="icon-artifact"> 
+					<span>Collar de Escarcha</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto en la Fase 2, después de que cada jugador haya jugado una carta. Coloca esas cartas a un lado y jugad otra baza (el líder sigue siendo el mismo). El ganador de esta segunda baza será quien consiga las cartas de ambas bazas.</p>
+            </div>
+        </div>      
+        <div id="reloj-de-arena-divino" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Reloj-de-Arena-Divino.png" alt="Reloj de Arena Divino" class="icon-artifact"> 
+					<span>Reloj de Arena Divino</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto después de que cada jugador haya jugado una carta. Ambos jugadores se llevan sus cartas jugadas de vuelta a su mano y se juega otra baza.</p>
+            </div>
+        </div>      
+        <div id="escudo-del-velo" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Escudo-del-Velo.png" alt="Escudo del Velo" class="icon-artifact"> 
+					<span>Escudo del Velo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto cuando tu oponente juegue una carta. El valor de su carta disminuye en -3.</p>
+            </div>
+        </div>      
+        <div id="jarra-de-los-reyes" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Jarra-de-los-Reyes.png" alt="Jarra de los Reyes" class="icon-artifact"> 
+					<span>Jarra de los Reyes</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto cuando juegues una carta de tu mano. Esa carta cambia a una facción de tu elección.</p>
+            </div>
+        </div>      
+        <div id="hacha-de-las-nubes" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Hacha-de-las-Nubes.png" alt="Hacha de las Nubes" class="icon-artifact"> 
+					<span>Hacha de las Nubes</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto en cualquier momento. El valor de las siguientes dos cartas que juegue tu oponente disminuyen en -2.</p>
+            </div>
+        </div>      
+        <div id="arco-de-los-enamorados" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Arco-de-los-Enamorados.png" alt="Arco de los Enamorados" class="icon-artifact"> 
+					<span>Arco de los Enamorados</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto cuando seas el Líder de la baza. Ambos jugadores deben jugar dos cartas en vez de una. La primera carta que juegas es la facción líder, y tu segunda carta debe seguir la facción, si es posible. Todas las cartas cuentan para el resultado de la baza.</p>
+            </div>
+        </div>      
+        <div id="anillo-nocturno" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Anillo-Nocturno.png" alt="Anillo Nocturno" class="icon-artifact"> 
+					<span>Anillo Nocturno</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Juega este artefacto cuando juegues tu carta no siendo Líder. No estás obligado a seguir la facción líder, y no necesitas la misma facción para ganar, solo el número más alto.</p>
+            </div>
+        </div>      
+        <div id="mayal-del-alba" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Mayal-del-Alba.png" alt="Mayal del Alba" class="icon-artifact"> 
+					<span>Mayal del Alba</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta al comienzo de la Fase 2. Tu oponente debe colocar una carta de su mano (a su elección y boca abajo) debajo de esta carta. Esa será la carta que deberá jugar en la última baza.</p>
+            </div>
+        </div>   
+        <div id="capa-de-caza" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Capa-de-Caza.png" alt="Capa de Caza" class="icon-artifact"> 
+					<span>Capa de Caza</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Después de jugar carta como Líder, toma una carta aleatoria de la mano de tu oponente. Esa será la carta que juegue en esta baza.</p>
+            </div>
+        </div>            
+        <div id="daga-del-rey" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Daga-del-Rey.png" alt="Daga del Rey" class="icon-artifact"> 
+					<span>Daga del Rey</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Si tu oponente juega una carta con valor 5, puedes jugar esta carta para inmediatamente colocar la suya en tu pila de Simpatizantes. Tu oponente puede jugar otra carta en su lugar.</p>
+            </div>
+        </div>   
+        <div id="antorcha-del-merodeador" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Antorcha-del-Merodeador.png" alt="Antorcha del Merodeador" class="icon-artifact"> 
+					<span>Antorcha del Merodeador</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta en la Fase 1. Durante las dos próximas bazas de la Fase 1, el jugador que tome la carta de la parte superior del mazo debe revelársela al otro jugador.</p>
+            </div>
+        </div>            
+        <div id="lampara-magica" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Lámpara-Mágica.png" alt="Lámpara Mágica" class="icon-artifact"> 
+					<span>Lámpara Mágica</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>En la Fase 2, si eres el Líder, puedes jugar esta carta y anunciar qué carta quieres que juegue tu oponente (la facción y el número). Si tiene la carta anunciada, debe jugarla incluso si no sigue a la facción Líder. Si no tiene la carta anunciada, puede jugar cualquier carta y ganará automáticamente la baza.</p>
+            </div>
+        </div>   
+        <div id="libro-del-apostador" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Libro-del-Apostador.png" alt="Libro del Apostador" class="icon-artifact"> 
+					<span>Libro del Apostador</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta al inicio de la Fase 2, después de llevarte a la mano las cartas de Seguidores. Descarta una carta aleatoria de tu mano, y toma una carta a tu elección de la pila de descarte.</p>
+            </div>
+        </div>            
+        <div id="catalejo" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Catalejo.png" alt="Catalejo" class="icon-artifact"> 
+					<span>Catalejo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta en la Fase 2, después de ganar una baza. Descarta una carta que fueses a colocar en tu pila de Simpatizantes, toma una carta a tu elección de la pila de descarte y colócala en tu pila de Simpatizantes.</p>
+            </div>
+        </div>   
+        <div id="varita-magica" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Varita-Mágica.png" alt="Varita Mágica" class="icon-artifact"> 
+					<span>Varita Mágica</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juégala después de jugar tu carta. Puedes ajustar el valor de tu carta en 2, hacia arriba o hacia abajo.</p>
+            </div>
+        </div>            
+        <div id="cuerda-interminable" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Cuerda-Interminable.png" alt="Cuerda Interminable" class="icon-artifact"> 
+					<span>Cuerda Interminable</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta en la Fase 2. Toma una carta de tu pila de Simpatizantes y añádela a tu mano.</p>
+            </div>
+        </div>   
+        <div id="botella-sin-fondo" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Botella-sin-fondo.png" alt="Botella sin Fondo" class="icon-artifact"> 
+					<span>Botella sin Fondo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta si eres el Líder. La carta de menor valor gana la baza.</p>
+            </div>
+        </div>            
+        <div id="frasco-de-lagrimas" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Frasco-de-lágrimas.png" alt="Frasco de Lágrimas" class="icon-artifact"> 
+					<span>Frasco de Lágrimas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta si pierdes 3 bazas seguidas. Tu siguiente carta aumenta en +9.</p>
+            </div>
+        </div>   
+        <div id="mascara-de-la-oscuridad" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Máscara-de-la-Oscuridad.png" alt="Máscara de la Oscuridad" class="icon-artifact"> 
+					<span>Máscara de la Oscuridad</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>En las dos bazas siguientes, el Líder juega su carta boca abajo. Después de que su oponente haya jugado su carta, la carta del Líder es revelada.</p>
+            </div>
+        </div>            
+        <div id="dados-del-apostador" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Dados-del-Apostador.png" alt="Dados del Apostador" class="icon-artifact"> 
+					<span>Dados del Apostador</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta antes de que el Líder juegue la suya. Ambos jugadores barajan su mano y juegan una carta al azar.</p>
+            </div>
+        </div>   
+        <div id="espejo-de-las-mentiras" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Espejo-de-las-Mentiras.png" alt="Espejo de las Mentiras" class="icon-artifact"> 
+					<span>Espejo de las Mentiras</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta después de que juegues tu carta. Si tu carta tiene un valor de 5 o menos, auméntalo en +5. Si tiene un valor mayor que 5, disminúyelo en -5.</p>
+            </div>
+        </div>            
+        <div id="libro-de-recuerdos" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Libro-de-los-Recuerdos.png" alt="Libro de Recuerdos" class="icon-artifact"> 
+					<span>Libro de Recuerdos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta en la Fase 2, antes de que juegues tu carta como Líder. Juega una carta de tu pila de Simpatizantes en vez de tu mano.</p>
+            </div>
+        </div>   
+        <div id="espada-de-hielo" class="card-artifact searchable">
+            <div class="card-artifact-header" onclick="toggleCard(this)">
+				<div class="card-artifact-title">
+					<img src="icons/artifacts/artefactos_Espada-de-Hielo.png" alt="Espada de Hielo" class="icon-artifact"> 
+					<span>Espada de Hielo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-artifact-content">
+                <span class="box">Refuerzos: Hielo</span>
+                <p><strong>Poder: </strong>Juega esta carta después de que ambos jugadores hayáis jugado vuestras cartas, pero antes de resolverlas. Ambas cartas se quedan congeladas en la mesa y sus habilidades especiales se ignoran. El Líder de esta baza es el Líder de la siguiente. Añade los valores de las cartas congeladas a las nuevas cartas jugadas. El ganador obtiene todas las cartas.</p>
+            </div>
+        </div>            
 
     </div>
 
