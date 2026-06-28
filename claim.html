@@ -22,10 +22,12 @@
             --accent: #8e44ad;
             --accent-hero: #44ad6c;
             --accent-artifact: #ff006a;
+            --accent-location: #2c2ea0;
             --bg: #ecf0f1;
             --card-bg: #ffffff;
             --card-hero-bg: #ffffff;
             --card-artifact-bg: #ffffff;
+            --card-location-bg: #ffffff;
             --text: #34495e;
         }
         body {
@@ -145,6 +147,29 @@
 			align-items: center;
 			gap: 12px;
 		}                        
+       .card-location {
+            background-color: var(--card-location-bg);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border-left: 5px solid var(--accent-location);
+        }
+        .card-location-header {
+            font-family: 'doubleBass';
+            font-size: 2rem;
+            font-weight: bolder;            
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+		.card-location-title {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}                        
+
         .card-header:hover { background-color: #f8f9fa; }
         .arrow { 
 			margin-left: auto;
@@ -164,6 +189,12 @@
 			flex-shrink: 0;
 		}    
         .icon-artifact {
+			width: 50px;
+			height: 50px;
+			object-fit: contain;
+			flex-shrink: 0;
+		}             
+        .icon-location {
 			width: 50px;
 			height: 50px;
 			object-fit: contain;
@@ -216,6 +247,18 @@
             align-items: flex-start;
         }
         .card-artifact-content.open {
+            display: flex;
+        }                            
+        .card-location-content p { margin: 0.8rem 0 0 0; }
+        .card-location-content strong { color: var(--primary); }
+        .card-location-content {
+            display: none;
+            flex-wrap: wrap;
+            padding: 0 1rem 1rem 1rem;
+            border-top: 1px solid #eee;
+            align-items: flex-start;
+        }
+        .card-location-content.open {
             display: flex;
         }                            
         .tag {
@@ -2069,12 +2112,249 @@ carta de valor 5 de esa facción.</p>
     <div id="localizaciones">
         <h2>🗺️ Localizaciones</h2>
 
+        <div id="reglas" class="rules-box">
+            <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Lugares Mágicos</h2>
+            <p>
+                Hay dos tipos de Lugares Mágicos: los "Edificios", con pergamino azul, y los "Escenarios", con pergamino negro. Al preparar la partida, baraja los dos tipos de Lugares Mágicos por separado y forma dos mazos.<br>
+                Puedes jugar esta expansión de 3 formas diferentes:
+                <ol>
+                    <li>Roba una carta de Edificio al comienzo de la partida y déjala boca arriba durante toda la partida. Aplica el efecto detallado en la carta. Esto normalmente cambiará las reglas de fin de la partida.</li>
+                    <li>Roba una carta de Escenario al comienzo de la partida y déjala boca arriba durante toda la partida. Aplica el efecto detallado en la carta. Esto normalmente cambiará la forma en la que las cartas interactúen entre sí.</li>
+                    <li>Puedes robar tanto una carta de Escenario como de Edificio y aplicar ambos efectos durante toda la partida.</li>
+                </ol>
+                Los efectos de los Lugares Mágicos son superados por los poderes de Facciones, Héroes y Artefactos.
+
+            </p>
+        </div>  
+
+        <div id="la-mazmorra" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_La-Mazmorra.png" alt="La Mazmorra" class="icon-location"> 
+					<span>La Mazmorra</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>El jugador que gane la última baza de la Fase 1, y el que gane la última baza de la Fase 2, se llevan el voto de una facción adicional. Por lo tanto, para la puntuación final, contamos con 2 facciones adicionales.</p>
+            </div>
+        </div>   
+        <div id="el-faro" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_El-Faro.png" alt="El Faro" class="icon-location"> 
+					<span>El Faro</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>En la Fase 2: El primer jugador en conseguir 3 cartas de una facción gana su voto (los Cíclopes se puntúan como de costumbre).</p>
+            </div>
+        </div>         
+        <div id="la-piramide" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_La-Pirámide.png" alt="La Pirámide" class="icon-location"> 
+					<span>La Pirámide</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al final de la partida: Debéis descartar todas las cartas conseguidas con valor 3 o menos. Luego, se puntúa como de costumbre.</p>
+            </div>
+        </div>         
+        <div id="el-monasterio" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_El-Monasterio.png" alt="El Monasterio" class="icon-location"> 
+					<span>El Monasterio</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al final de la partida: Cada jugador cuenta el total de cartas en su pila de Simpatizantes. Si un jugador ha conseguido el doble (o más) de cartas que su oponente, pierde automáticamente la partida. En caso contrario, se puntúa como de costumbre.</p>
+            </div>
+        </div>         
+        <div id="el-puente" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_El-Puente.png" alt="El Puente" class="icon-location"> 
+					<span>El Puente</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al final de la partida: El ganador será quien haya conseguido más sets completos de las 5 facciones (un set completo consta de 1 carta de cada facción). En caso de empate, se puntúa como de costumbre.</p>
+            </div>
+        </div>         
+        <div id="la-fortaleza" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_La-Fortaleza.png" alt="La Fortaleza" class="icon-location"> 
+					<span>La Fortaleza</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al final de la partida: Si tienes más de 5 cartas de una facción, debes descartar 4 cartas de esa facción (las de menor valor) antes de puntuar.</p>
+            </div>
+        </div>         
+        <div id="la-torre" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_La-Torre.png" alt="La Torre" class="icon-location"> 
+					<span>La Torre</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al final de la partida: Suma los valores de las cartas de cada facción para determinar quién gana su voto. En caso de empate, la cantidad de cartas determina al ganador del voto.</p>
+            </div>
+        </div>         
+        <div id="las-ruinas" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_Las-Ruinas.png" alt="Las Ruinas" class="icon-location"> 
+					<span>Las Ruinas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al final de la partida: Todas las cartas conseguidas con números impares se descartan. Luego, se puntúa como de costumbre.</p>
+            </div>
+        </div>         
+        <div id="el-castillo" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_El-Castillo.png" alt="El Castillo" class="icon-location"> 
+					<span>El Castillo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al final de la partida: El jugador que haya conseguido la mayor cantidad de Simpatizantes es el ganador. En caso de empate, se puntúa como de costumbre.</p>
+            </div>
+        </div>         
+        <div id="las-tierras-de-cultivo" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_Las-Tierras-de-Cultivo.png" alt="Las Tierras de Cultivo" class="icon-location"> 
+					<span>Las Tierras de Cultivo</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Durante la partida: El valor 2 se considera el valor más alto de cada facción.</p>
+            </div>
+        </div>         
+        <div id="la-costa" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_La-Costa.png" alt="La Costa" class="icon-location"> 
+					<span>La Costa</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Durante la Fase 1: El jugador que pierde la baza obtiene la carta del centro de la mesa, en lugar del ganador.</p>
+            </div>
+        </div>         
+        <div id="los-picos-ventosos" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_Los-Picos-Ventosos.png" alt="Los Picos Ventosos" class="icon-location"> 
+					<span>Los Picos Ventosos</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al comienzo de la Fase 2: Los oponentes intercambian 3 cartas, antes de comenzar la Fase.</p>
+            </div>
+        </div>         
+        <div id="el-desierto-interminable" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_El-Desierto-Interminable.png" alt="El Desierto Interminable" class="icon-location"> 
+					<span>El Desierto Interminable</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al comienzo de la Fase 1: Los oponentes intercambian 5 cartas, antes de comenzar la Fase.</p>
+            </div>
+        </div>         
+        <div id="las-islas" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_Las-Islas.png" alt="Las Islas" class="icon-location"> 
+					<span>Las Islas</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Durante la Fase 1: Se revelan dos cartas del mazo central. El ganador de la baza elige cuál obtiene y la otra se coloca en la parte inferior del mazo. El perdedor toma la carta de la parte superior del mazo como de costumbre. En la última baza, el ganador elige una carta y el perdedor obtiene la otra.</p>
+            </div>
+        </div>         
+        <div id="la-meseta" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_La-Meseta.png" alt="La Meseta" class="icon-location"> 
+					<span>La Meseta</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Si un jugador gana 3 bazas seguidas, el otro jugador será el Líder de la siguiente baza.</p>
+            </div>
+        </div>         
+        <div id="el-pantano" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_El-Pantano.png" alt="El Pantano" class="icon-location"> 
+					<span>El Pantano</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Al comienzo de la Fase 2: Cada jugador debe descartar 2 cartas de su mano a su elección.</p>
+            </div>
+        </div>         
+        <div id="los-icebergs" class="card-location searchable">
+            <div class="card-location-header" onclick="toggleCard(this)">
+				<div class="card-location-title">
+					<img src="icons/locations/locations_Los-Icebergs.png" alt="Los Icebergs" class="icon-location"> 
+					<span>Los Icebergs</span> 
+				</div>
+				<span class="arrow">▼</span>
+			</div>
+            <div class="card-location-content">
+                <span class="box">Refuerzos: Magia</span>
+                <p><strong>Poder: </strong>Si un jugador pierde una baza, aumenta en +1 el valor de la siguiente carta que juegue.</p>
+            </div>
+        </div>         
+
     </div>    
 
 </div>
 
 <footer>
-    Guía no oficial creada a partir de los manuales oficiales de Claim.
+    Guía no oficial de Claim.
 </footer>
 
 <script>
