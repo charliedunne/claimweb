@@ -152,17 +152,36 @@ function getCardArrow(card) {
 }
 
 /**
- * Performs the search functionality: filters cards based on search input,
- * auto-expands matching cards, and shows/hides the clear button.
+ * Gets the searchable text from a card (title and optionally box).
  * 
- * @function performSearch
- * @listens input - Triggered by the search input field
+ * @param {HTMLElement} card - The card element.
+ * @param {boolean} includeBox - Whether to include the box in the search.
+ * @returns {string} The normalized searchable text.
+ * 
+ * @private
+ */
+function getSearchableText(card, includeBox = false) {
+    const titleElement = card.querySelector('.card-title, .card-hero-title, .card-artifact-title, .card-location-title');
+    const titleText = titleElement ? normalizeText(titleElement.innerText) : '';
+    
+    if (!includeBox) {
+        return titleText;
+    }
+    
+    const tagElement = card.querySelector('.box');
+    const tagText = tagElement ? normalizeText(tagElement.innerText) : '';
+    
+    return titleText + ' ' + tagText;
+}
+
+/**
+ * Do the actual search
+ * 
  */
 function performSearch() {
     const filter = normalizeText(searchInput.value);
     const cards = document.querySelectorAll('.searchable');
     
-    // Show/hide clear button based on input content
     if (searchInput.value.length > 0) {
         clearBtn.classList.add('visible');
     } else {
@@ -170,24 +189,20 @@ function performSearch() {
     }
     
     cards.forEach(card => {
-        const text = normalizeText(card.innerText);
+        const searchableText = getSearchableText(card, true);
         const content = getCardContent(card);
         const arrow = getCardArrow(card);
         
-        if (text.includes(filter) && filter.length > 0) {
-            // Show the card
+        if (searchableText.includes(filter) && filter.length > 0) {
             card.style.display = '';
-            // Auto-expand using classes
             if (content) {
                 content.classList.add('open');
-                // Reset any inline styles that might interfere
                 content.style.display = '';
             }
             if (arrow) {
                 arrow.classList.add('active');
             }
         } else if (filter.length === 0) {
-            // Restore original state (collapse everything)
             card.style.display = '';
             if (content) {
                 content.classList.remove('open');
@@ -197,7 +212,6 @@ function performSearch() {
                 arrow.classList.remove('active');
             }
         } else {
-            // Hide cards that don't match
             card.style.display = 'none';
         }
     });
