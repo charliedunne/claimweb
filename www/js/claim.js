@@ -50,11 +50,11 @@ function goToAnchor(id) {
 // Buscador
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function() {
-    const filter = searchInput.value.toLowerCase();
+    const filter = normalizeText(searchInput.value);;
     const cards = document.querySelectorAll('.searchable');
     
     cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
+        const text = normalizeText(card.innerText);
         if (text.includes(filter)) {
             card.style.display = '';
             // Auto-abrir si hay búsqueda
@@ -94,4 +94,12 @@ function scrollToTop() {
         top: 0,
         behavior: 'smooth'
     });
+}
+
+function normalizeText(text) {
+    return text
+        .toLowerCase()
+        .normalize('NFD') // Descompone caracteres acentuados
+        .replace(/[\u0300-\u036f]/g, '') // Elimina los diacríticos
+        .replace(/[^a-z0-9\s]/g, ' '); // Opcional: elimina caracteres especiales
 }
