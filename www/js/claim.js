@@ -291,3 +291,34 @@ window.addEventListener('scroll', function() {
         backToTopBtn.classList.remove('visible');
     }
 });
+
+// ============ DARK MODE TOGGLE ============
+
+/** @type {HTMLElement} - The dark mode toggle button */
+const darkModeToggle = document.getElementById('darkModeToggle');
+
+/**
+ * Toggles dark mode on/off and saves preference to localStorage.
+ * 
+ * @listens click - Triggered by the dark mode toggle button
+ */
+darkModeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    
+    // Save preference to localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+});
+
+/**
+ * Loads dark mode preference from localStorage on page load.
+ */
+(function loadDarkModePreference() {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+})();

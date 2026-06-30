@@ -12,18 +12,27 @@
 <body>
 
 <header>
-    <h1>📜 Referencia de Claim!</h1>
-	<div class="container">
-
-		<div class="search-wrapper">
-            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar facción, héroe, artefacto o localización...">
-            <button class="clear-btn" id="clearSearchBtn" aria-label="Limpiar búsqueda">✕</button>
+    <div style="position: relative; display: flex; justify-content: center; align-items: center;">
+        <img src="img/banner/claim-banner.png" width="256">
+<!--        <h1 style="margin: 0;"> Claim!</h1> -->
+        <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo oscuro" style="position: absolute; right: 0;">
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+        </button>
+    </div>
+    <div class="container">
+	    <div class="container">
+		    <div class="search-wrapper">
+                <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar facción, héroe, artefacto o localización...">
+                <button class="clear-btn" id="clearSearchBtn" aria-label="Limpiar búsqueda">✕</button>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn factions" onclick="scrollToSection('facciones')">Facciones</button>
+                <button class="nav-btn heroes" onclick="scrollToSection('heroes')">Héroes</button>
+                <button class="nav-btn artifacts" onclick="scrollToSection('artefactos')">Artefactos</button>
+                <button class="nav-btn locations" onclick="scrollToSection('localizaciones')">Localizaciones</button>
+            </div>
         </div>
-        <div class="nav-buttons">
-        <button class="nav-btn factions" onclick="scrollToSection('facciones')">Facciones</button>
-        <button class="nav-btn heroes" onclick="scrollToSection('heroes')">Héroes</button>
-        <button class="nav-btn artifacts" onclick="scrollToSection('artefactos')">Artefactos</button>
-        <button class="nav-btn locations" onclick="scrollToSection('localizaciones')">Localizaciones</button>
     </div>
 </header>
 
