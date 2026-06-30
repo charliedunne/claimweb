@@ -6,6 +6,23 @@ function toggleCard(element) {
     arrow.classList.toggle('active');
 }
 
+function toggleRulesBox(headerElement) {
+    
+    const rulesBox = headerElement.closest('.rules-box');
+    if (!rulesBox) return;
+
+    const content = rulesBox.querySelector('.rules-box-content');
+    if (!content) return;
+
+    const arrow = headerElement.querySelector('.arrow');
+    
+    content.classList.toggle('hidden');
+
+    if (arrow) {
+        arrow.classList.toggle('active');
+    }
+}
+
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
 }

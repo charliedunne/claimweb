@@ -296,10 +296,37 @@ h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bott
 .rules-box {
     background: #fff3cd;
     border: 1px solid #ffeeba;
-    padding: 1rem;
     border-radius: 8px;
     margin-bottom: 2rem;
     font-size: 0.9rem;
+    overflow: hidden; /* Para que el borde redondeado se vea bien */
+}
+.rules-box-header {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff3cd;
+    transition: background-color 0.2s;
+}
+.rules-box-header:hover {
+    background-color: #f7e6b5; /* Un poco más oscuro al pasar el ratón */
+}
+.rules-box-content {
+    padding: 0 1rem 1rem 1rem;
+    border-top: 1px solid #ffeeba;
+    display: none; /* Hidden by default */
+}
+.rules-box-content.hidden {
+    display: block;
+}
+.rules-box-header .arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+.rules-box-header .arrow.active {
+    transform: rotate(180deg);
 }
 footer {
     text-align: center;

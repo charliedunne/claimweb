@@ -26,15 +26,20 @@
     </div>
 
     <div id="reglas" class="rules-box">
-        <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Instrucciones</h2>
-        <p><strong>Fase 1 - Reclutar: </strong> 13 bazas. Se revela 1 carta del mazo. El líder juega una carta, el rival debe seguir facción si puede (Regla de Arrastre). Gana la carta del centro el de valor más alto de la facción líder. El perdedor roba del mazo.</p>
-        <p><strong>Fase 2 - Simpatizantes: </strong> 13 bazas con las cartas ganadas. Se compite por las 2 cartas jugadas. Regla de arrastre vigente.</p>
-        <p><strong>Victoria: </strong> Ganas el voto de una facción teniendo más cartas de ella en tu pila de Simpatizantes. Gana la partida quien consiga 3 votos.</p>
-        <p><br><strong>Reglas para 3 y 4 jugadores: </strong>Añade 2 facciones al mazo y reparte a cada jugador:
-        <ul>
-            <li>En una partida a 3 jugadores: 12 cartas.</li>
-            <li>En una partida a 4 jugadores: 9 cartas.</li>
-        </ul></p>
+        <div class="rules-box-header" onclick="toggleRulesBox(this)">
+            <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas</h2>
+            <span class="arrow">▼</span>
+        </div>
+        <div class="rules-box-content">
+            <p><strong>Fase 1 - Reclutar: </strong> 13 bazas. Se revela 1 carta del mazo. El líder juega una carta, el rival debe seguir facción si puede (Regla de Arrastre). Gana la carta del centro el de valor más alto de la facción líder. El perdedor roba del mazo.</p>
+            <p><strong>Fase 2 - Simpatizantes: </strong> 13 bazas con las cartas ganadas. Se compite por las 2 cartas jugadas. Regla de arrastre vigente.</p>
+            <p><strong>Victoria: </strong> Ganas el voto de una facción teniendo más cartas de ella en tu pila de Simpatizantes. Gana la partida quien consiga 3 votos.</p>
+            <p><br><strong>Reglas para 3 y 4 jugadores: </strong>Añade 2 facciones al mazo y reparte a cada jugador:
+            <ul>
+                <li>En una partida a 3 jugadores: 12 cartas.</li>
+                <li>En una partida a 4 jugadores: 9 cartas.</li>
+            </ul></p>
+        </div>
     </div>
 
     <!-- FACCIONES -->
@@ -992,12 +997,17 @@
         <h2>🧙 Héroes</h2>        
 
          <div id="reglas" class="rules-box">
-            <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Héroes</h2>
-            <p>Al comienzo de la partida, baraja el mazo de cartas de Héroe y <strong>separa 5</strong> boca abajo. Luego, baraja como siempre el mazo central y retira 5 cartas de la parte superior sin mirar. Añade las 5 cartas de Héroe al mazo central y barájalo. Coloca el mazo en el centro de la mesa y reparte 13 cartas a cada jugador.
-            <p>Ahora, además de las facciones habituales, hay algunas cartas de Héroe en el mazo. Se juegan y utilizan como cartas normales, pero cada una tiene su propia habilidad única. Al jugarlas, se tienen en cuenta las siguientes reglas:
-                    <ul><li>Si el Héroe es la primera carta jugada, el jugador contrario puede jugar cualquier facción. No hay una facción “líder” para esta baza. Los valores (y cualquier habilidad especial) determinarán al ganador.</li>
-                    <li>Si el Héroe es la segunda carta jugada, se considera que pertenece a otra facción. Por lo tanto, la facción líder del oponente sigue teniendo ventaja.</li></ul></p>
-                Cuando consigues Héroes en la <strong>Fase 2</strong>, no cuentan como una facción específica y no cuentan para la puntuación final de partida (a menos que se indique lo contrario). Los Héroes prevalecen sobre los poderes de las Facciones y Lugares Mágicos, si hubiera conflicto, pero los artefactos prevalecen sobre todos.</p>
+            <div class="rules-box-header" onclick="toggleRulesBox(this)">
+                <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Héroes</h2>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="rules-box-content">
+                <p>Al comienzo de la partida, baraja el mazo de cartas de Héroe y <strong>separa 5</strong> boca abajo. Luego, baraja como siempre el mazo central y retira 5 cartas de la parte superior sin mirar. Añade las 5 cartas de Héroe al mazo central y barájalo. Coloca el mazo en el centro de la mesa y reparte 13 cartas a cada jugador.
+                <p>Ahora, además de las facciones habituales, hay algunas cartas de Héroe en el mazo. Se juegan y utilizan como cartas normales, pero cada una tiene su propia habilidad única. Al jugarlas, se tienen en cuenta las siguientes reglas:
+                        <ul><li>Si el Héroe es la primera carta jugada, el jugador contrario puede jugar cualquier facción. No hay una facción “líder” para esta baza. Los valores (y cualquier habilidad especial) determinarán al ganador.</li>
+                        <li>Si el Héroe es la segunda carta jugada, se considera que pertenece a otra facción. Por lo tanto, la facción líder del oponente sigue teniendo ventaja.</li></ul></p>
+                    Cuando consigues Héroes en la <strong>Fase 2</strong>, no cuentan como una facción específica y no cuentan para la puntuación final de partida (a menos que se indique lo contrario). Los Héroes prevalecen sobre los poderes de las Facciones y Lugares Mágicos, si hubiera conflicto, pero los artefactos prevalecen sobre todos.</p>
+            </div>
         </div>
 
 
@@ -1321,8 +1331,13 @@
         <h2>💎Artefactos</h2>
 
          <div id="reglas" class="rules-box">
-            <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Artefactos</h2>
-            <p>Al comienzo de la partida, baraja el mazo de cartas de Artefacto. Reparte 3 cartas de Artefacto a cada jugador, boca abajo.<br>Devuelve las demás a la caja, ya que no se usarán en esta partida. Durante la partida, los jugadores pueden jugar sus cartas de Artefacto. Las reglas indican cuándo y cómo se pueden jugar. Cada una de estas cartas tendrá un poder especial asociado, y si las juegas con astucia ¡pueden proporcionarte una buena ventaja! Las cartas de Artefacto no van a tu mano.<br>Un jugador puede utilizar un Artefacto en cualquier momento. Una vez jugado, se descarta. Los poderes de los Artefactos prevalecen sobre los poderes de los Héroes, Facciones y Lugares Mágicos, si hubiera conflicto.</p>
+            <div class="rules-box-header" onclick="toggleRulesBox(this)">
+                <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Artefactos</h2>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="rules-box-content">
+                <p>Al comienzo de la partida, baraja el mazo de cartas de Artefacto. Reparte 3 cartas de Artefacto a cada jugador, boca abajo.<br>Devuelve las demás a la caja, ya que no se usarán en esta partida. Durante la partida, los jugadores pueden jugar sus cartas de Artefacto. Las reglas indican cuándo y cómo se pueden jugar. Cada una de estas cartas tendrá un poder especial asociado, y si las juegas con astucia ¡pueden proporcionarte una buena ventaja! Las cartas de Artefacto no van a tu mano.<br>Un jugador puede utilizar un Artefacto en cualquier momento. Una vez jugado, se descarta. Los poderes de los Artefactos prevalecen sobre los poderes de los Héroes, Facciones y Lugares Mágicos, si hubiera conflicto.</p>
+            </div>
         </div>        
 
         <div id="corona-de-la-luz" class="card-artifact searchable">
@@ -1776,18 +1791,23 @@ carta de valor 5 de esa facción.</p>
         <h2>🗺️ Localizaciones</h2>
 
         <div id="reglas" class="rules-box">
-            <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Lugares Mágicos</h2>
-            <p>
-                Hay dos tipos de Lugares Mágicos: los "Edificios", con pergamino azul, y los "Escenarios", con pergamino negro. Al preparar la partida, baraja los dos tipos de Lugares Mágicos por separado y forma dos mazos.<br>
-                Puedes jugar esta expansión de 3 formas diferentes:
-                <ol>
-                    <li>Roba una carta de Edificio al comienzo de la partida y déjala boca arriba durante toda la partida. Aplica el efecto detallado en la carta. Esto normalmente cambiará las reglas de fin de la partida.</li>
-                    <li>Roba una carta de Escenario al comienzo de la partida y déjala boca arriba durante toda la partida. Aplica el efecto detallado en la carta. Esto normalmente cambiará la forma en la que las cartas interactúen entre sí.</li>
-                    <li>Puedes robar tanto una carta de Escenario como de Edificio y aplicar ambos efectos durante toda la partida.</li>
-                </ol>
-                Los efectos de los Lugares Mágicos son superados por los poderes de Facciones, Héroes y Artefactos.
+            <div class="rules-box-header" onclick="toggleRulesBox(this)">
+                <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Lugares Mágicos</h2>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="rules-box-content">
+                <p>
+                    Hay dos tipos de Lugares Mágicos: los "Edificios", con pergamino azul, y los "Escenarios", con pergamino negro. Al preparar la partida, baraja los dos tipos de Lugares Mágicos por separado y forma dos mazos.<br>
+                    Puedes jugar esta expansión de 3 formas diferentes:
+                    <ol>
+                        <li>Roba una carta de Edificio al comienzo de la partida y déjala boca arriba durante toda la partida. Aplica el efecto detallado en la carta. Esto normalmente cambiará las reglas de fin de la partida.</li>
+                        <li>Roba una carta de Escenario al comienzo de la partida y déjala boca arriba durante toda la partida. Aplica el efecto detallado en la carta. Esto normalmente cambiará la forma en la que las cartas interactúen entre sí.</li>
+                        <li>Puedes robar tanto una carta de Escenario como de Edificio y aplicar ambos efectos durante toda la partida.</li>
+                    </ol>
+                    Los efectos de los Lugares Mágicos son superados por los poderes de Facciones, Héroes y Artefactos.
 
-            </p>
+                </p>
+            </div>
         </div>  
 
         <div id="la-mazmorra" class="card-location searchable">
