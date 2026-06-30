@@ -181,6 +181,7 @@ function getSearchableText(card, includeBox = false) {
 function performSearch() {
     const filter = normalizeText(searchInput.value);
     const cards = document.querySelectorAll('.searchable');
+    const rulesBoxes = document.querySelectorAll('.rules-box');
     
     if (searchInput.value.length > 0) {
         clearBtn.classList.add('visible');
@@ -188,6 +189,7 @@ function performSearch() {
         clearBtn.classList.remove('visible');
     }
     
+    // === FILTRAR CARTAS ===
     cards.forEach(card => {
         const searchableText = getSearchableText(card, true);
         const content = getCardContent(card);
@@ -213,6 +215,42 @@ function performSearch() {
             }
         } else {
             card.style.display = 'none';
+        }
+    });
+
+    // === FILTRAR RULES-BOX (DESAPARECEN COMPLETAMENTE) ===
+    rulesBoxes.forEach(box => {
+        // Buscar en todo el texto de la rules-box (título y contenido)
+        const text = normalizeText(box.innerText);
+        
+        if (text.includes(filter) && filter.length > 0) {
+            // Mostrar la rules-box
+            box.style.display = '';
+            // Auto-abrir el contenido
+            const content = box.querySelector('.rules-box-content');
+            const arrow = box.querySelector('.arrow');
+            if (content) {
+                content.classList.add('hidden');
+                content.style.display = '';
+            }
+            if (arrow) {
+                arrow.classList.add('active');
+            }
+        } else if (filter.length === 0) {
+            // Restaurar estado original (visible pero colapsado)
+            box.style.display = '';
+            const content = box.querySelector('.rules-box-content');
+            const arrow = box.querySelector('.arrow');
+            if (content) {
+                content.classList.remove('hidden');
+                content.style.display = '';
+            }
+            if (arrow) {
+                arrow.classList.remove('active');
+            }
+        } else {
+            // DESAPARECER COMPLETAMENTE - ocultar la rules-box entera
+            box.style.display = 'none';
         }
     });
 }
