@@ -2,12 +2,17 @@
 <widget id="com.charliedunne.claimweb" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>claimweb</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Aplicación de referencia y guía para Claim!.
     </description>
-    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+    <author email="" href="">
         Apache Cordova Team
     </author>
-    <content src="index.html" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="StatusBarOverlays" value="true" />
+    <preference name="Fullscreen" value ="false" />
+    <preference name="WebViewBounce" value="false" />
+    <!-- <icon src="platforms/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" /> -->
+    <content src="claim.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
 </widget>
