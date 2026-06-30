@@ -11,7 +11,7 @@
     <preference name="StatusBarOverlays" value="true" />
     <preference name="Fullscreen" value ="false" />
     <preference name="WebViewBounce" value="false" />
-    <!-- <icon src="platforms/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" /> -->
+    <icon src="www/img/icon/white-goblin.png" />
     <content src="claim.html" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

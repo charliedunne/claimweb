@@ -7,7 +7,6 @@ function toggleCard(element) {
 }
 
 function toggleRulesBox(headerElement) {
-    
     const rulesBox = headerElement.closest('.rules-box');
     if (!rulesBox) return;
 
@@ -25,6 +24,21 @@ function toggleRulesBox(headerElement) {
 
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+function normalizeText(text) {
+    return text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, ' ');
 }
 
 function goToAnchor(id) {
@@ -47,38 +61,79 @@ function goToAnchor(id) {
     });
 }
 
-// Buscador
+// ============ BUSCADOR ============
 const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('input', function() {
-    const filter = normalizeText(searchInput.value);;
+const clearBtn = document.getElementById('clearSearchBtn');
+
+// Función para obtener el contenido de cualquier tipo de carta
+function getCardContent(card) {
+    return card.querySelector('.card-content, .card-hero-content, .card-artifact-content, .card-location-content');
+}
+
+// Función para obtener la flecha de cualquier tipo de carta
+function getCardArrow(card) {
+    return card.querySelector('.arrow');
+}
+
+// Función de búsqueda
+function performSearch() {
+    const filter = normalizeText(searchInput.value);
     const cards = document.querySelectorAll('.searchable');
+    
+    // Mostrar/ocultar botón X
+    if (searchInput.value.length > 0) {
+        clearBtn.classList.add('visible');
+    } else {
+        clearBtn.classList.remove('visible');
+    }
     
     cards.forEach(card => {
         const text = normalizeText(card.innerText);
-        if (text.includes(filter)) {
+        const content = getCardContent(card);
+        const arrow = getCardArrow(card);
+        
+        if (text.includes(filter) && filter.length > 0) {
+            // Mostrar la carta
             card.style.display = '';
-            // Auto-abrir si hay búsqueda
-            if(filter.length > 0) {
-                const content = card.querySelector('.card-content');
-                const arrow = card.querySelector('.arrow');
-                content.style.display = 'block';
+            // Auto-abrir usando clases, no style.display
+            if (content) {
+                content.classList.add('open');
+                // Asegurarse de que display sea block a través de la clase
+                content.style.display = ''; // Resetear cualquier style inline
+            }
+            if (arrow) {
                 arrow.classList.add('active');
             }
+        } else if (filter.length === 0) {
+            // Restaurar estado original (cerrar todo)
+            card.style.display = '';
+            if (content) {
+                content.classList.remove('open');
+                content.style.display = ''; // Resetear cualquier style inline
+            }
+            if (arrow) {
+                arrow.classList.remove('active');
+            }
         } else {
+            // Ocultar cartas que no coinciden
             card.style.display = 'none';
         }
     });
+}
 
-    if(filter.length === 0) {
-        cards.forEach(card => {
-            const content = card.querySelector('.card-content');
-            const arrow = card.querySelector('.arrow');
-            content.style.display = 'none';
-            arrow.classList.remove('active');
-        });
-    }
+// Evento input del buscador
+searchInput.addEventListener('input', performSearch);
+
+// Limpiar buscador al hacer clic en X
+clearBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    searchInput.value = '';
+    performSearch();
+    searchInput.focus();
+    this.classList.remove('visible');
 });
 
+// ============ BOTÓN VOLVER ARRIBA ============
 const backToTopBtn = document.querySelector('.back-to-top');
 
 window.addEventListener('scroll', function() {
@@ -89,17 +144,4 @@ window.addEventListener('scroll', function() {
     }
 });
 
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-function normalizeText(text) {
-    return text
-        .toLowerCase()
-        .normalize('NFD') // Descompone caracteres acentuados
-        .replace(/[\u0300-\u036f]/g, '') // Elimina los diacríticos
-        .replace(/[^a-z0-9\s]/g, ' '); // Opcional: elimina caracteres especiales
-}
+// Nota: scrollToTop ya está definido arriba

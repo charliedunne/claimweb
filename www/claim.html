@@ -14,7 +14,11 @@
 <header>
     <h1>📜 Referencia de Claim!</h1>
 	<div class="container">
-		<input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar facción o habilidad...">
+
+		<div class="search-wrapper">
+            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Buscar facción o habilidad...">
+            <button class="clear-btn" id="clearSearchBtn" aria-label="Limpiar búsqueda">✕</button>
+        </div>
         <div class="nav-buttons">
         <button class="nav-btn" onclick="scrollToSection('facciones')">Facciones</button>
         <button class="nav-btn" onclick="scrollToSection('heroes')">Héroes</button>
@@ -28,7 +32,7 @@
 
     <div id="reglas" class="rules-box">
         <div class="rules-box-header" onclick="toggleRulesBox(this)">
-            <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas Generales</h2>
+            <h2 style="margin-top:0; font-size:1.2rem;">ⓘ Reglas Generales</h2>
             <span class="arrow">▼</span>
         </div>
         <div class="rules-box-content">
@@ -999,7 +1003,7 @@
 
          <div id="reglas" class="rules-box">
             <div class="rules-box-header" onclick="toggleRulesBox(this)">
-                <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Héroes</h2>
+                <h2 style="margin-top:0; font-size:1.2rem;">ⓘ Reglas de los Héroes</h2>
                 <span class="arrow">▼</span>
             </div>
             <div class="rules-box-content">
@@ -1333,7 +1337,7 @@
 
          <div id="reglas" class="rules-box">
             <div class="rules-box-header" onclick="toggleRulesBox(this)">
-                <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Artefactos</h2>
+                <h2 style="margin-top:0; font-size:1.2rem;">ⓘ Reglas de los Artefactos</h2>
                 <span class="arrow">▼</span>
             </div>
             <div class="rules-box-content">
@@ -1793,7 +1797,7 @@ carta de valor 5 de esa facción.</p>
 
         <div id="reglas" class="rules-box">
             <div class="rules-box-header" onclick="toggleRulesBox(this)">
-                <h2 style="margin-top:0; font-size:1.2rem;">⚙️ Reglas de los Lugares Mágicos</h2>
+                <h2 style="margin-top:0; font-size:1.2rem;">ⓘ Reglas de los Lugares Mágicos</h2>
                 <span class="arrow">▼</span>
             </div>
             <div class="rules-box-content">
