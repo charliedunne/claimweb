@@ -145,7 +145,7 @@ h2 {
     position: absolute;
     right: 12px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-75%);
     background: none;
     border: none;
     font-size: 1.2rem;
