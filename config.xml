@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.charliedunne.claimweb" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>claimweb</name>
+    <description>
+        Aplicación de referencia y guía para Claim!.
+    </description>
+    <author email="" href="">
+        Apache Cordova Team
+    </author>
+    <preference name="Orientation" value="portrait" />
+    <preference name="StatusBarOverlays" value="true" />
+    <preference name="Fullscreen" value ="false" />
+    <preference name="WebViewBounce" value="false" />
+    <icon src="www/img/icon/white-goblin.png" />
+    <content src="claim.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+</widget>
