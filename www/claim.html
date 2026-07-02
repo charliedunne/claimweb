@@ -11,35 +11,37 @@
 
 <body>
 
-    <header>
-        <div style="position: relative; display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.5rem 0;">
+<header>
+    <div style="position: relative; display: flex; justify-content: center; align-items: center; padding: 0.5rem 1rem;">
+        <!-- Título centrado -->
+        <div style="flex: 1; display: flex; justify-content: center;">
             <img src="img/banner/claim-banner.png" width="256" alt="Claim!" />
-            <div style="display: flex; gap: 0.5rem; align-items: center;">
-                <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma / Switch language">
-                    <span class="lang-es"><img src="img/language/es.png" width="32"></span>
-                    <span class="lang-en"><img src="img/language/gb.png" width="32"></span>
-                </button>
-                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo oscuro">
-                    <span class="sun-icon">☀️</span>
-                    <span class="moon-icon">🌙</span>
-                </button>
-            </div>
         </div>
-        <div class="container">
-            <div class="container">
-                <div class="search-wrapper">
-                    <input type="text" id="searchInput" class="search-box" data-i18n-placeholder="search_placeholder" placeholder="🔍 Buscar facción, héroe, artefacto o localización..." />
-                    <button class="clear-btn" id="clearSearchBtn" aria-label="Limpiar búsqueda">✕</button>
-                </div>
-                <div class="nav-buttons">
-                    <button class="nav-btn factions" onclick="scrollToSection('facciones')" data-i18n="nav_factions">Facciones</button>
-                    <button class="nav-btn heroes" onclick="scrollToSection('heroes')" data-i18n="nav_heroes">Héroes</button>
-                    <button class="nav-btn artifacts" onclick="scrollToSection('artefactos')" data-i18n="nav_artifacts">Artefactos</button>
-                    <button class="nav-btn locations" onclick="scrollToSection('localizaciones')" data-i18n="nav_locations">Localizaciones</button>
-                </div>
-            </div>
+        <!-- Botones justificados a la derecha -->
+        <div style="display: flex; gap: 0.5rem; align-items: center; margin-left: auto; flex-shrink: 0;">
+            <button class="toggle-btn dark-mode-toggle" id="darkModeToggle" aria-label="Alternar modo oscuro">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+            <button class="toggle-btn lang-toggle" id="langToggle" aria-label="Cambiar idioma / Switch language">
+                <span class="lang-es"><img src="img/language/es.png" width="20"></span>
+                <span class="lang-en"><img src="img/language/gb.png" width="20"></span>
+            </button>
         </div>
-    </header>
+    </div>
+    <div class="container">
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" class="search-box" data-i18n-placeholder="search_placeholder" placeholder="🔍 Buscar facción, héroe, artefacto o localización..." />
+            <button class="clear-btn" id="clearSearchBtn" aria-label="Limpiar búsqueda">✕</button>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-btn factions" onclick="scrollToSection('facciones')" data-i18n="nav_factions">Facciones</button>
+            <button class="nav-btn heroes" onclick="scrollToSection('heroes')" data-i18n="nav_heroes">Héroes</button>
+            <button class="nav-btn artifacts" onclick="scrollToSection('artefactos')" data-i18n="nav_artifacts">Artefactos</button>
+            <button class="nav-btn locations" onclick="scrollToSection('localizaciones')" data-i18n="nav_locations">Localizaciones</button>
+        </div>
+    </div>
+</header>
 
     <div class="container">
 

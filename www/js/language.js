@@ -10,8 +10,8 @@ const i18n = {
 
   // Barra de búsqueda
   search_placeholder: {
-    es: '🔍 Buscar facción, héroe, artefacto o localización...',
-    en: '🔍 Search faction, hero, artifact or location...'
+    es: '🔍 Buscar facción, héroe, ...',
+    en: '🔍 Search faction, hero, ...'
   },
 
   // Botones de navegación
